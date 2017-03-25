@@ -48,61 +48,10 @@
         <div style="width:960px;z-index:10;"
           layout-align="start start"
           layout-xs="column"
-          layout-gt-xs="row">
-
-          <div md-whiteframe="2"
-            style="margin:16px;"
-            flex-gt-xs>
-
-            <div class="above-content-primary">
-
-              <p>Want a call back? Complete, and submit the following form, and one of our team members will get back to you.</p>
-
-            </div>
-
-            <div class="content-primary">
-
-              <div class="inside-content-primary">
-                <div contact-form></div>
-              </div>
-
-            </div>
-
-            <md-progress-linear class="md-accent"
-              ng-if="$contact.progressElVisible"
-              md-mode="indeterminate">
-            </md-progress-linear>
-
-          </div>
-
-          <div class="content-secondary"
+          layout-gt-xs="row"><div class="content-secondary"
             flex-gt-xs="30">
 
             <div>
-
-              <div class="section-content-secondary">
-
-                <ul class="content-link-list"
-                  layout="row">
-                  <li ng-repeat="$link in $contact.socialLinks"
-                    flex>
-                    <a href="{{ $link.href }}" 
-                      class="md-button md-icon-button"
-                      style="line-height: 50px;height: 60px;width: 60px;"
-                      target="_blank">
-                      <md-tooltip md-direction="top">
-                        {{ $link.tooltip }}
-                      </md-tooltip>
-                      <div>
-                        <span style="font-size: 24px;"
-                          class="socicon socicon-{{ $link.icon }}">
-                        </span>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-
-              </div>
 
               <div class="section-content-secondary md-whiteframe-1dp">
 
@@ -161,7 +110,64 @@
 
               </div>
 
+              <div class="section-content-secondary">
+
+                <ul class="content-link-list"
+                  layout="row">
+                  <li ng-repeat="$link in $contact.socialLinks"
+                    flex>
+                    <a href="{{ $link.href }}" 
+                      class="md-button md-icon-button md-raised"
+                      style="line-height: 50px;height: 60px;width: 60px;"
+                      target="_blank">
+                      <md-tooltip md-direction="top">
+                        {{ $link.tooltip }}
+                      </md-tooltip>
+                      <div>
+                        <span style="font-size: 24px;"
+                          class="socicon socicon-{{ $link.icon }}">
+                        </span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+
             </div>
+
+          </div>
+
+          <div style="margin:16px;"
+            md-whiteframe="1"
+            flex-gt-xs>
+
+            <div>
+              <h3 style="margin-top:8px;margin-bottom:24px;color:rgba(0,0,0,0.57);font-family:'Ubuntu',sans-serif;font-weight:200;color:#0288d1;">
+                <md-icon class="material-icons"
+                  style="margin-right:16px;color:#0288d1;">
+                  mail_outline
+                </md-icon>
+                <span>Send a message</span>
+              </h3>
+            </div>
+
+            <div class="above-content-primary">
+              <p>Want a call back? Complete, and submit the following form, and one of our team members will get back to you.</p>
+            </div>
+
+            <div class="content-primary">
+
+              <div class="inside-content-primary">
+                <div contact-form></div>
+              </div>
+
+            </div>
+
+            <md-progress-linear class=""
+              ng-if="$contact.progressElVisible"
+              md-mode="indeterminate">
+            </md-progress-linear>
 
           </div>
 

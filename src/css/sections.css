@@ -25,13 +25,15 @@ section header md-icon {
 }
 
 section header h1 {
-  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+  font-family: 'Signika Negative',Roboto,sans-serif;
   font-weight: 300;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,1);
 }
 
 section md-content.md-clearContent-theme {
-  background-color: #fafafa;
+  background-color: #fff;
+  background: linear-gradient(to bottom, #eee 0px, #fff 32px);
   padding-top: 32px;
   box-sizing: border-box;
 }
@@ -41,6 +43,7 @@ section md-content.md-clearContent-theme .above-content-primary {
   background: linear-gradient(to right, #616161 0%, #424242 80%);
   padding: 16px 40px;
   margin: 0;
+  display: none;
 }
 
 section md-content.md-clearContent-theme .above-content-primary p {
@@ -51,12 +54,11 @@ section md-content.md-clearContent-theme .above-content-primary p {
 }
 
 section md-content.md-clearContent-theme .content-primary {
-  background-color: #fff;
   box-sizing: border-box;
 }
 
 section md-content.md-clearContent-theme .content-primary .inside-content-primary {
-  padding: 24px 40px 16px;
+  padding: 0 40px 16px;
 }
 
 section md-content.md-clearContent-theme .content-secondary {
@@ -94,5 +96,4 @@ section#contact header md-icon {
 }
 
 section#contact header h1 {
-  font-size: 24px;
 }

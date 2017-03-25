@@ -7,46 +7,61 @@
 
       <div>
         <div layout="row">
+    
+          <md-input-container flex="20">
 
-          <md-input-container flex="50">
+            <label>Prefix</label>
 
-            <label>Your name</label>
-
-            <input name="contactName"
-              ng-model="$form.data.contactName"
+            <md-select name="namePrefix"
+              ng-model="$form.data.namePrefix"
               ng-disabled="true === $form.isLocked"
               required>
+              <md-option value="mr">Mr.</md-option>
+              <md-option value="mrs">Mrs.</md-option>
+              <md-option value="ms">Ms.</md-option>
+              <md-option value="miss">Miss</md-option>
+            </md-select>
 
-            <div ng-messages="contact.contactName.$error">
-              <div ng-message="required">Your name is required</div>
+            <div ng-messages="contact.namePrefix.$error">
+              <div ng-message="required">Your name prefix is required</div>
+            </div>
+
+          </md-input-container>
+
+          <md-input-container flex="40">
+
+            <label>Given name</label>
+
+            <input name="givenName"
+              ng-model="$form.data.givenName"
+              ng-disabled="true === $form.isLocked"
+              ng-focus="true"
+              required>
+
+            <div ng-messages="contact.givenName.$error">
+              <div ng-message="required">Your given name is required</div>
+            </div>
+
+          </md-input-container>
+
+          <md-input-container flex="40">
+
+            <label>Family name</label>
+
+            <input name="familyName"
+              ng-model="$form.data.familyName"
+              ng-disabled="true === $form.isLocked"
+              ng-focus="true"
+              required>
+
+            <div ng-messages="contact.familyName.$error">
+              <div ng-message="required">Your family name is required</div>
             </div>
 
           </md-input-container>
 
         </div>
       </div>
-    
-      <md-input-container class="md-block">
-
-        <label>Message</label>
-
-        <textarea name="message"
-          ng-model="$form.data.message"
-          ng-disabled="true === $form.isLocked"
-          md-maxlength="500"
-          rows="3"
-          max-rows="4"
-          md-select-on-focus
-          required>
-        </textarea>
-
-        <div ng-messages="contact.message.$error">
-          <div ng-message="required">Message is required</div>
-          <div ng-message="md-minlength">Message must be more than 5 characters</div>
-          <div ng-message="md-maxlength">Message must be less than 30 characters</div>
-        </div>
-
-      </md-input-container>
 
       <div>
         <div layout="row">
@@ -111,6 +126,28 @@
 
         </div>
       </div>
+    
+      <md-input-container class="md-block">
+
+        <label>Message</label>
+
+        <textarea name="message"
+          ng-model="$form.data.message"
+          ng-disabled="true === $form.isLocked"
+          md-maxlength="500"
+          rows="3"
+          max-rows="4"
+          md-select-on-focus
+          required>
+        </textarea>
+
+        <div ng-messages="contact.message.$error">
+          <div ng-message="required">Message is required</div>
+          <div ng-message="md-minlength">Message must be more than 5 characters</div>
+          <div ng-message="md-maxlength">Message must be less than 30 characters</div>
+        </div>
+
+      </md-input-container>
 
       <div>
         <div layout="row"
