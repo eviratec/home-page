@@ -17,7 +17,8 @@
 /** Global section styling **/
 
 section header {
-  margin-top: 16px;
+  margin-top: 0px;
+  padding: 4px 0;
 }
 
 section header md-icon {
@@ -25,15 +26,16 @@ section header md-icon {
 }
 
 section header h1 {
-  font-size: 24px;
+  font-size: 14px;
   font-family: 'Signika Negative',Roboto,sans-serif;
   font-weight: 300;
-  color: rgba(255,255,255,1);
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
 }
 
 section md-content.md-clearContent-theme {
-  background-color: #fff;
-  background: linear-gradient(to bottom, #eee 0px, #fff 32px);
+  background-color: #eee;
+  background: linear-gradient(to bottom, #dadada 0, #eee 32px);
   padding-top: 32px;
   box-sizing: border-box;
 }
@@ -58,7 +60,7 @@ section md-content.md-clearContent-theme .content-primary {
 }
 
 section md-content.md-clearContent-theme .content-primary .inside-content-primary {
-  padding: 0 40px 16px;
+  padding: 0px;
 }
 
 section md-content.md-clearContent-theme .content-secondary {
@@ -86,9 +88,13 @@ section md-content.md-clearContent-theme .section-content-secondary .content-top
 
 /** Local section styling **/
 
-section#contact {
+/*section#contact {
   background-color: #0288d1;
   background: linear-gradient(to right, #0288d1 0%, #00B0FF 20%, #0288d1 100%);
+}*/
+section#contact {
+  background-color: #242424;
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
 section#contact header md-icon {

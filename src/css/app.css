@@ -98,8 +98,8 @@ h2.md-headline span {
   font-weight: 300;
 }
 md-content#stageContent {
-  background-color: #546E7A;
-  background: linear-gradient(to bottom right, #78909C 0%, #546e7a 100%);
+  background-color: #121212;
+  background: linear-gradient(to bottom right,#37474F 0,#263238 100%);
 }
 index-state .social-ctas {
   margin-top: 32px;

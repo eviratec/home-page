@@ -14,8 +14,8 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.component('serviceRatesState', {
-  controller: 'ServiceRatesStateController as $svcRates',
-  templateUrl: 'html/components/serviceRatesState.html',
+app.component('servicesState', {
+  controller: 'ServicesStateController as $services',
+  templateUrl: 'html/components/servicesState.html',
 });
 

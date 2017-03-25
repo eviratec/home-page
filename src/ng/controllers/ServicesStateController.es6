@@ -14,12 +14,12 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.controller('ServiceRatesStateController', ServiceRatesStateController);
+app.controller('ServicesStateController', ServicesStateController);
 
-ServiceRatesStateController.$inject = ['$scope', '$animate', '$mdDialog'];
-function ServiceRatesStateController (  $scope,   $animate,   $mdDialog) {
+ServicesStateController.$inject = ['$scope', '$animate', '$mdDialog'];
+function ServicesStateController (  $scope,   $animate,   $mdDialog) {
 
-  class ServiceRatesStateController {
+  class ServicesStateController {
 
     constructor () {
       
@@ -27,6 +27,6 @@ function ServiceRatesStateController (  $scope,   $animate,   $mdDialog) {
 
   }
 
-  return new ServiceRatesStateController();
+  return new ServicesStateController();
 
 }

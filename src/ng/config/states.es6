@@ -26,17 +26,17 @@ function appStates (  $stateProvider) {
 
   $stateProvider.state('services', {
     url: '/services',
-    template: '<list-state id="services" class="state-wrapper"></list-state>',
+    template: '<services-state class="state-wrapper"></list-state>',
   });
 
   $stateProvider.state('products', {
     url: '/products',
-    template: '<list-state id="products" class="state-wrapper"></list-state>',
+    template: '<products-state id="products" class="state-wrapper"></list-state>',
   });
 
   $stateProvider.state('products.ssl-certificates', {
     url: '/ssl-certificates',
-    template: '<list-state id="products" class="state-wrapper"></list-state>',
+    template: '<ssl-certificate-store-state id="products" class="state-wrapper"></list-state>',
   });
 
   $stateProvider.state('contact', {
