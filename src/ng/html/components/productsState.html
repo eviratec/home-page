@@ -1,4 +1,4 @@
-<section id="services"
+<section id="products"
   layout-align="start center"
   layout="column"
   layout-fill>
@@ -20,7 +20,7 @@
         </md-icon>
 
         <h1 id="headline">
-          <span>Services &amp; Service Rates</span>
+          <span>Products &amp; Product Pricing</span>
         </h1>
 
         <div flex></div>
@@ -52,38 +52,10 @@
             <div layout="column">
 
               <md-card>
-                <div style="background-color:#0087be;background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);color:#fff;padding:8px 24px;">
+                <div style="background-color:#0087be;    background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);color:#fff;padding:8px 24px;">
                   <h4>WordPress</h4>
                   <p>Plugins, themes, and cloud</p>
                 </div>
-
-                <div layout
-                  layout-align="center center">
-                  <div layout="column"
-                    style="width:100%;">
-                  
-                    <ul style="margin:0;list-style-type:none;padding:8px 0px 0px;">
-
-                      <li style="border-bottom: 1px solid rgba(0,0,0,0.12);"
-                        ng-repeat="$itm in $services.wordPress">
-                      
-                        <a href="{{ $itm.href }}"
-                          class="md-button {{ $itm.class }}"
-                          style="text-align:left;margin:0;border-radius:0;display:block;padding:4px 16px;">
-                          <md-icon class="material-icons"
-                            style="margin-right:8px;"
-                            ng-bind="$itm.icon">
-                          </md-icon>
-                          <span ng-bind="$itm.label"></span>
-                        </a>
-
-                      </li>
-                  
-                    </ul>
-
-                  </div>
-                </div>
-
                 <md-card-actions layout="row" layout-align="end center">
                   <md-button class="md-icon-button" aria-label="Docs">
                     <md-icon class="material-icons">book</md-icon>
@@ -104,39 +76,10 @@
             <div layout="column">
 
               <md-card>
-
                 <div style="background-color:#43853d;background:linear-gradient(to bottom,#37474F 0,#263238 100%);color:#fff;padding:8px 24px;">
-                  <h4>Apps &amp; APIs</h4>
-                  <p>Web, mobile, and native</p>
+                  <h4>Node.js</h4>
+                  <p>APIs, tools, and web services</p>
                 </div>
-
-                <div layout
-                  layout-align="center center">
-                  <div layout="column"
-                    style="width:100%;">
-                  
-                    <ul style="margin:0;list-style-type:none;padding:8px 0px 0px;">
-
-                      <li style="border-bottom: 1px solid rgba(0,0,0,0.12);"
-                        ng-repeat="$itm in $services.appsApis">
-                      
-                        <a href="{{ $itm.href }}"
-                          class="md-button {{ $itm.class }}"
-                          style="text-align:left;margin:0;border-radius:0;display:block;padding:4px 16px;">
-                          <md-icon class="material-icons"
-                            style="margin-right:8px;"
-                            ng-bind="$itm.icon">
-                          </md-icon>
-                          <span ng-bind="$itm.label"></span>
-                        </a>
-
-                      </li>
-                  
-                    </ul>
-
-                  </div>
-                </div>
-
                 <md-card-actions layout="row" layout-align="end center">
                   <md-button class="md-icon-button" aria-label="Docs">
                     <md-icon class="material-icons">book</md-icon>
@@ -148,7 +91,24 @@
                     <md-icon class="material-icons">chevron_right</md-icon>
                   </md-button>
                 </md-card-actions>
+              </md-card>
 
+              <md-card>
+                <div style="background-color:#D32F2F;background:linear-gradient(to top,#D32F2F 0,#B71C1C 100%);color:#fff;padding:8px 24px;">
+                  <h4>Angular.js</h4>
+                  <p>Apps, and GUIs</p>
+                </div>
+                <md-card-actions layout="row" layout-align="end center">
+                  <md-button class="md-icon-button" aria-label="Docs">
+                    <md-icon class="material-icons">book</md-icon>
+                  </md-button>
+                  <md-button class="md-icon-button" aria-label="Contact">
+                    <md-icon class="material-icons">mail_outline</md-icon>
+                  </md-button>
+                  <md-button class="md-icon-button" aria-label="View">
+                    <md-icon class="material-icons">chevron_right</md-icon>
+                  </md-button>
+                </md-card-actions>
               </md-card>
 
             </div>

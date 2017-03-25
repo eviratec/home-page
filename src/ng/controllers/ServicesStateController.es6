@@ -22,7 +22,66 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog) {
   class ServicesStateController {
 
     constructor () {
-      
+     
+      this.wordPress = [{
+        icon: 'extension',
+        label: 'Plugin development',
+        href: '',
+        class: '',
+      }, {
+        icon: 'style',
+        label: 'Theme development',
+        href: '',
+        class: '',
+      }, {
+        icon: 'settings_backup_restore',
+        label: 'Backups & restorations',
+        href: '',
+        class: '',
+      }, {
+        icon: 'settings_application',
+        label: 'Installations & setups',
+        href: '',
+        class: '',
+      }, {
+        icon: 'store',
+        label: 'Store setup & management',
+        href: '',
+        class: '',
+      }, {
+        icon: 'security',
+        label: 'Updates & security',
+        href: '',
+        class: '',
+      }];
+     
+      this.appsApis = [{
+        icon: 'web',
+        label: 'Web apps',
+        href: '',
+        class: '',
+      }, {
+        icon: 'developer_mode',
+        label: 'Mobile apps',
+        href: '',
+        class: '',
+      }, {
+        icon: 'devices',
+        label: 'Desktop apps',
+        href: '',
+        class: '',
+      }, {
+        icon: 'storage',
+        label: 'API & SDK design',
+        href: '',
+        class: '',
+      }, {
+        icon: 'security',
+        label: 'Stack & data security',
+        href: '',
+        class: '',
+      }];
+
     }
 
   }

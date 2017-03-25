@@ -20,6 +20,12 @@ appMaterialConfig.$inject = ['$mdThemingProvider'];
 function appMaterialConfig (  $mdThemingProvider) {
 
   $mdThemingProvider
+    .theme('clearContent')
+    .primaryPalette('light-blue')
+    .accentPalette('purple')
+    .warnPalette('deep-orange');
+
+  $mdThemingProvider
     .theme('default')
     .primaryPalette('light-blue')
     .accentPalette('light-blue', {
@@ -27,12 +33,6 @@ function appMaterialConfig (  $mdThemingProvider) {
     })
     .warnPalette('yellow')
     .dark();
-
-  $mdThemingProvider
-    .theme('clearContent')
-    .primaryPalette('light-blue')
-    .accentPalette('purple')
-    .warnPalette('deep-orange');
 
 }
 

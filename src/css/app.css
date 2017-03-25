@@ -26,6 +26,9 @@ web-app-root {
 md-tab-content {
   padding-top: 24px;
 }
+md-content.md-clearContent-theme {
+  background-color: transparent;
+}
 .contact-form-container {
   
 }
