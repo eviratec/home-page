@@ -1,0 +1,90 @@
+<div layout="column"
+  layout-fill>
+
+  <md-toolbar id="toolbar"
+    class="md-hue-2">
+
+    <div class="md-toolbar-tools"
+      layout-align="center center">
+
+      <div style="width: 960px;"
+        layout="row">
+
+        <!-- Eviratec Logo -->
+        <div layout="row"
+          layout-align="center center">
+
+          <img src="images/logov7c-dist.png"
+            style="height:36px;width:36px;"
+            title="Eviratec Logo" />
+
+          <h2 class="md-body-1"
+            style="text-transform: uppercase;">
+            Eviratec
+          </h2>
+
+          <!-- <ev-current-user></ev-current-user> -->
+
+        </div>
+        <!-- Eviratec Logo -->
+
+        <div flex></div>
+
+        <!-- Horizontal Site Menu -->
+        <div class="h-main-menu">
+
+          <div layout="row"
+            layout-align="center center">
+          
+            <a href="/"
+              class="md-button md-icon-button md-primary">
+              <md-icon class="material-icons"
+                style="margin-right:8px;">
+                home
+              </md-icon>
+            </a>
+          
+            <a href="{{ $itm.href }}"
+              class="md-button {{ $itm.class }}"
+              ng-repeat="$itm in $webAppRoot.menuItems">
+              <span ng-bind="$itm.label"></span>
+            </a>
+
+          </div>
+
+        </div>
+        <!-- Horizontal Site Menu -->
+
+      </div>
+    
+    </div>
+
+  </md-toolbar>
+
+  <md-content id="stageContent"
+    layout="column"
+    flex>
+
+    <div class="content-ui-view"
+      ui-view
+      flex>
+    </div>
+
+<!--     <div id="stageFooter">
+
+      <div layout="row" flex>
+
+        <span flex></span>
+
+        <span class="md-caption"
+          style="color: rgba(255,255,255,0.5);">
+          Copyright &copy; 2017 Callan Peter Milne
+        </span>
+        
+      </div>
+      
+    </div> -->
+
+  </md-content>
+
+</div>

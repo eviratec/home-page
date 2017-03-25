@@ -1,0 +1,98 @@
+/** 
+ * Copyright (c) 2017 Callan Peter Milne
+ * 
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above 
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+
+/** Global section styling **/
+
+section header {
+  margin-top: 16px;
+}
+
+section header md-icon {
+  color: rgba(255,255,255,0.7);
+}
+
+section header h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+}
+
+section md-content.md-clearContent-theme {
+  background-color: #fafafa;
+  padding-top: 32px;
+  box-sizing: border-box;
+}
+
+section md-content.md-clearContent-theme .above-content-primary {
+  background-color: #424242;
+  background: linear-gradient(to right, #616161 0%, #424242 80%);
+  padding: 16px 40px;
+  margin: 0;
+}
+
+section md-content.md-clearContent-theme .above-content-primary p {
+  font-size: 16.6px;
+  line-height: 1.3;
+  font-weight: 100;
+  color: rgba(255,255,255,0.7);
+}
+
+section md-content.md-clearContent-theme .content-primary {
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+section md-content.md-clearContent-theme .content-primary .inside-content-primary {
+  padding: 24px 40px 16px;
+}
+
+section md-content.md-clearContent-theme .content-secondary {
+  margin: 16px;
+}
+
+section md-content.md-clearContent-theme .content-secondary .section-content-secondary {
+  margin-bottom: 32px;
+}
+
+section md-content.md-clearContent-theme .section-content-secondary .content-top {
+  background-color: #fafafa;
+  color: rgba(0,0,0,.58);
+  padding: 8px 4px 8px;
+  font-family: 'Signika Negative',Roboto,sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: .87em;
+}
+
+section md-content.md-clearContent-theme .section-content-secondary .content-top md-icon {
+  margin-right: 24px;
+  margin-left: 12px;
+}
+
+/** Local section styling **/
+
+section#contact {
+  background-color: #0288d1;
+  background: linear-gradient(to right, #0288d1 0%, #00B0FF 20%, #0288d1 100%);
+}
+
+section#contact header md-icon {
+
+}
+
+section#contact header h1 {
+  font-size: 24px;
+}

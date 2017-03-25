@@ -1,0 +1,130 @@
+<div class="contact-form-container">
+  <div class="contact-form-content"
+    layout="column">
+
+    <form name="contact"
+      ng-submit="$form.submit($event)">
+
+      <div>
+        <div layout="row">
+
+          <md-input-container flex="50">
+
+            <label>Your name</label>
+
+            <input name="contactName"
+              ng-model="$form.data.contactName"
+              ng-disabled="true === $form.isLocked"
+              required>
+
+            <div ng-messages="contact.contactName.$error">
+              <div ng-message="required">Your name is required</div>
+            </div>
+
+          </md-input-container>
+
+        </div>
+      </div>
+    
+      <md-input-container class="md-block">
+
+        <label>Message</label>
+
+        <textarea name="message"
+          ng-model="$form.data.message"
+          ng-disabled="true === $form.isLocked"
+          md-maxlength="500"
+          rows="3"
+          max-rows="4"
+          md-select-on-focus
+          required>
+        </textarea>
+
+        <div ng-messages="contact.message.$error">
+          <div ng-message="required">Message is required</div>
+          <div ng-message="md-minlength">Message must be more than 5 characters</div>
+          <div ng-message="md-maxlength">Message must be less than 30 characters</div>
+        </div>
+
+      </md-input-container>
+
+      <div>
+        <div layout="row">
+    
+          <md-input-container flex="50">
+
+            <label>Response preference</label>
+
+            <md-select name="respondVia"
+              ng-model="$form.data.respondVia"
+              placeholder="How should we get in touch?"
+              ng-disabled="true === $form.isLocked"
+              required>
+              <md-option value="phone">By phone</md-option>
+              <md-option value="email">By e-mail</md-option>
+              <md-option value="none">I don't want a response</md-option>
+            </md-select>
+
+            <div ng-messages="contact.respondVia.$error">
+              <div ng-message="required">Response type is required</div>
+            </div>
+
+          </md-input-container>
+        
+          <md-input-container ng-if="'phone' === $form.data.respondVia"
+            flex="50">
+
+            <label>Phone number</label>
+
+            <input name="contactPhone"
+              type="phone"
+              ng-model="$form.data.contactPhone"
+              ng-required="'phone' === $form.data.respondVia"
+              ng-disabled="true === $form.isLocked" />
+
+            <div ng-messages="contact.contactPhone.$error">
+              <div ng-message="required">Phone number is required</div>
+            </div>
+
+          </md-input-container>
+        
+          <md-input-container ng-if="'email' === $form.data.respondVia"
+            flex="50">
+
+            <label>Email address</label>
+
+            <input name="contactEmail"
+              type="email"
+              minlength="10" 
+              maxlength="100" 
+              ng-pattern="/^.+@.+\..+$/"
+              ng-model="$form.data.contactEmail"
+              ng-required="'email' === $form.data.respondVia"
+              ng-disabled="true === $form.isLocked" />
+
+            <div ng-messages="contact.contactEmail.$error">
+              <div ng-message="required">Email address is required</div>
+              <div ng-message="pattern">Invalid or incomplete address</div>
+            </div>
+
+          </md-input-container>
+
+        </div>
+      </div>
+
+      <div>
+        <div layout="row"
+          layout-align="end center">
+          <md-button type="submit"
+            class="md-primary"
+            ng-disabled="true === $form.isLocked">
+            <span>Send message</span>
+          </md-button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

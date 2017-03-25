@@ -1,0 +1,178 @@
+<section id="contact"
+  layout-align="start center"
+  layout="column"
+  layout-fill>
+  
+  <header>
+
+    <div layout="row"
+      layout-align="start center">
+
+      <div flex></div>
+
+      <div style="width:960px;z-index:10;"
+        layout-align="center center"
+        layout>
+
+        <md-icon class="material-icons"
+          style="font-size:36px;height:36px;width:36px;margin-right:16px;">
+          chevron_right
+        </md-icon>
+
+        <h1 id="headline">
+          <span>Contact Us</span>
+        </h1>
+
+        <div flex></div>
+
+      </div>
+
+      <div flex></div>
+
+    </div>
+
+  </header>
+
+  <div style="width:100%;"
+    md-theme="clearContent"
+    flex>
+
+    <md-content md-whiteframe="3"
+      layout-fill>
+
+      <div layout="row"
+        layout-align="start center">
+
+        <div flex></div>
+
+        <div style="width:960px;z-index:10;"
+          layout-align="start start"
+          layout-xs="column"
+          layout-gt-xs="row">
+
+          <div md-whiteframe="2"
+            style="margin:16px;"
+            flex-gt-xs>
+
+            <div class="above-content-primary">
+
+              <p>Want a call back? Complete, and submit the following form, and one of our team members will get back to you.</p>
+
+            </div>
+
+            <div class="content-primary">
+
+              <div class="inside-content-primary">
+                <div contact-form></div>
+              </div>
+
+            </div>
+
+            <md-progress-linear class="md-accent"
+              ng-if="$contact.progressElVisible"
+              md-mode="indeterminate">
+            </md-progress-linear>
+
+          </div>
+
+          <div class="content-secondary"
+            flex-gt-xs="30">
+
+            <div>
+
+              <div class="section-content-secondary">
+
+                <ul class="content-link-list"
+                  layout="row">
+                  <li ng-repeat="$link in $contact.socialLinks"
+                    flex>
+                    <a href="{{ $link.href }}" 
+                      class="md-button md-icon-button"
+                      style="line-height: 50px;height: 60px;width: 60px;"
+                      target="_blank">
+                      <md-tooltip md-direction="top">
+                        {{ $link.tooltip }}
+                      </md-tooltip>
+                      <div>
+                        <span style="font-size: 24px;"
+                          class="socicon socicon-{{ $link.icon }}">
+                        </span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+
+              <div class="section-content-secondary md-whiteframe-1dp">
+
+                <div class="content-top"
+                  layout-align="start center"
+                  layout="row">
+
+                  <md-icon class="material-icons">
+                    map
+                  </md-icon>
+                  <span>Map</span>
+                  <span flex></span>
+
+                </div>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14980413.604670588!2d136.7294759301566!3d-23.556677032320838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad63c9ced72e043%3A0xda232c7a25c27e66!2sEVIRATEC!5e0!3m2!1sen!2sau!4v1490443271119" width="288" height="200" frameborder="0" style="border:0;display:block;" allowfullscreen></iframe>
+
+              </div>
+
+              <div class="section-content-secondary md-whiteframe-1dp">
+
+                <div class="content-top"
+                  layout-align="start center"
+                  layout="row">
+                  
+                  <md-icon class="material-icons">
+                    info_outline
+                  </md-icon>
+                  <span>Contact Information</span>
+                  <span flex></span>
+                  
+                </div>
+
+                <ul class="content-link-list">
+                  <li>
+                    <a href="mailto:info@eviratec.com.au">
+                      <md-icon class="material-icons">
+                        email_outline
+                      </md-icon>
+                      <span>
+                        info@eviratec.com.au
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tel:+61420269919">
+                      <md-icon class="material-icons">
+                        phone
+                      </md-icon>
+                      <span>
+                        +61 420 269 919
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div flex></div>
+
+      </div>
+      
+    </md-content>
+
+  </div>
+
+</section>

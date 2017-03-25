@@ -1,0 +1,75 @@
+<div layout="row"
+  layout-align="center center"
+  layout-fill>
+
+  <div class="hero-anim">
+    <div class="box"></div>
+  </div>
+
+  <div flex></div>
+
+  <div style="width:960px;z-index:10;"
+    layout-align="center center"
+    layout>
+
+    <div style="width:420px;"
+      layout="column">
+
+      <div style="text-align:center;margin-bottom:16px;">
+        <p class="md-display-1"
+          style="font-family:'Signika Negative', sans-serif;font-weight:300;">
+          Test-driven, software development.
+        </p>
+      </div>
+
+      <!-- Vertical Site Menu -->
+      <div layout
+        layout-align="center center">
+        <div layout="column"
+          style="width:70%;">
+        
+          <a href="{{ $itm.href }}"
+            class="md-button md-raised {{ $itm.class }}"
+            ng-repeat="$itm in $index.menuItems">
+            <md-icon class="material-icons"
+              style="margin-right:8px;"
+              ng-bind="$itm.icon">
+            </md-icon>
+            <span ng-bind="$itm.label"></span>
+          </a>
+
+        </div>
+      </div>
+      <!-- Vertical Site Menu -->
+
+      <!-- Horizontal Social Media Menu -->
+      <div style="margin:32px 0;">
+        <div layout="row"
+          layout-align="center center"
+          style="color:rgba(255,255,255,0.7);">
+          
+          <a href="{{ $link.href }}" 
+            class="md-button md-icon-button"
+            ng-repeat="$link in $index.socialLinks"
+            style="line-height: 50px;height: 60px;width: 60px;"
+            target="_blank">
+            <md-tooltip md-direction="top">
+              {{ $link.tooltip }}
+            </md-tooltip>
+            <div>
+              <span style="font-size: 24px;"
+                class="socicon socicon-{{ $link.icon }}">
+              </span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <!-- Horizontal Social Media Menu -->
+
+    </div>
+  </div>
+
+  <div flex></div>
+
+</div>
