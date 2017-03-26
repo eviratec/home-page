@@ -15,6 +15,7 @@
             <md-select name="namePrefix"
               ng-model="$form.data.namePrefix"
               ng-disabled="true === $form.isLocked"
+              tab-index="1"
               required>
               <md-option value="mr">Mr.</md-option>
               <md-option value="mrs">Mrs.</md-option>
@@ -36,6 +37,7 @@
               ng-model="$form.data.givenName"
               ng-disabled="$form.isLocked"
               ng-focus="true"
+              tab-index="2"
               required>
 
             <div ng-messages="contact.givenName.$error">
@@ -52,6 +54,7 @@
               ng-model="$form.data.familyName"
               ng-disabled="$form.isLocked"
               ng-focus="true"
+              tab-index="3"
               required>
 
             <div ng-messages="contact.familyName.$error">
@@ -74,6 +77,7 @@
               ng-model="$form.data.respondVia"
               placeholder="How should we get in touch?"
               ng-disabled="$form.isLocked"
+              tab-index="4"
               required>
               <md-option value="phone">By phone</md-option>
               <md-option value="email">By e-mail</md-option>
@@ -95,6 +99,7 @@
               type="phone"
               ng-model="$form.data.contactPhone"
               ng-required="'phone' === $form.data.respondVia"
+              tab-index="5"
               ng-disabled="$form.isLocked" />
 
             <div ng-messages="contact.contactPhone.$error">
@@ -115,6 +120,7 @@
               ng-pattern="/^.+@.+\..+$/"
               ng-model="$form.data.contactEmail"
               ng-required="'email' === $form.data.respondVia"
+              tab-index="6"
               ng-disabled="$form.isLocked" />
 
             <div ng-messages="contact.contactEmail.$error">
@@ -137,6 +143,7 @@
           md-maxlength="500"
           rows="3"
           max-rows="4"
+          tab-index="7"
           md-select-on-focus
           required>
         </textarea>
@@ -169,6 +176,7 @@
 
           <md-button type="submit"
             class="md-primary"
+            tab-index="8"
             ng-hide="$form.isDone"
             ng-disabled="$form.isLocked">
             <span>Send message</span>

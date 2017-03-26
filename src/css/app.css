@@ -46,17 +46,8 @@ md-content.md-clearContent-theme {
   margin-right: 32px;
   padding-right: 32px;
 }
-.web-app-header,
-.web-app-footer {
+.web-app-header {
   width: 100%;
-}
-.web-app-footer {
-  height: 64px;
-  color: rgba(255,255,255,0.57);
-  font-size: 12px;
-}
-.web-app-footer .web-app-footer-container {
-  height: 100%;
 }
 .web-app-header .tagline {
   text-align: right;
