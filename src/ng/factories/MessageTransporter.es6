@@ -43,7 +43,7 @@ function MessageTransporterFactory (  EventEmitter,   $http,   $logger) {
     }
 
     writeMsgUrl (message) {
-      return [this.writeViaUrl, message.id, '/msg.evmsg'].join('');
+      return [this.writeViaUrl, message.id, '/msg.json'].join('');
     }
 
   }

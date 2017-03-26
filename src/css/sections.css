@@ -88,10 +88,6 @@ section .state-content-root md-content.md-clearContent-theme .section-content-se
 
 /** Local section styling **/
 
-/*section#contact {
-  background-color: #0288d1;
-  background: linear-gradient(to right, #0288d1 0%, #00B0FF 20%, #0288d1 100%);
-}*/
 section#contact {
   background-color: #242424;
   border-top: 1px solid rgba(255,255,255,0.12);
@@ -103,18 +99,3 @@ section#contact header md-icon {
 
 section#contact header h1 {
 }
-
-
-
-section#services {
-  background-color: #242424;
-  border-top: 1px solid rgba(255,255,255,0.12);
-}
-
-section#services header md-icon {
-
-}
-
-section#services header h1 {
-}
-

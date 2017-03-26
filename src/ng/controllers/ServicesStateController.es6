@@ -43,11 +43,11 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog) {
         label: 'Installations & setups',
         href: '',
         class: '',
-      }, {
-        icon: 'store',
-        label: 'Store setup & management',
-        href: '',
-        class: '',
+      // }, {
+      //   icon: 'store',
+      //   label: 'Store setup & management',
+      //   href: '',
+      //   class: '',
       }, {
         icon: 'security',
         label: 'Updates & security',
@@ -78,6 +78,33 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog) {
       }, {
         icon: 'security',
         label: 'Stack & data security',
+        href: '',
+        class: '',
+      }];
+     
+      this.awsServices = [{
+        icon: '',
+        label: 'Lambda script dev',
+        href: '',
+        class: '',
+      }, {
+        icon: '',
+        label: 'EC2 set-up & maintainence',
+        href: '',
+        class: '',
+      }, {
+        icon: '',
+        label: 'VPC set-up & maintainence',
+        href: '',
+        class: '',
+      }, {
+        icon: '',
+        label: 'Route53, domains, & DNS',
+        href: '',
+        class: '',
+      }, {
+        icon: '',
+        label: 'IAM policy management',
         href: '',
         class: '',
       }];
