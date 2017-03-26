@@ -163,7 +163,7 @@ h2.md-headline span {
 }
 md-content#stageContent {
   background-color: #121212;
-  background: linear-gradient(to bottom right,#37474F 0,#263238 100%);
+  background: linear-gradient(to top left,#1565C0 0,#1E88E5 100%);
 }
 index-state .social-ctas {
   margin-top: 32px;
