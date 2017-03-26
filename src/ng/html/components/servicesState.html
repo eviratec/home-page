@@ -25,187 +25,74 @@
           layout-xs="column"
           layout="row">
 
-          <div style="padding:8px;" flex>
-            <div layout="column">
+          <div style="padding:8px;"
+            ng-repeat="$group in $services.groups.data.groups"
+            flex>
 
-              <md-card>
+            <md-card>
 
-                <div style="position:relative;background-color:#0087be;background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);color:#fff;padding:8px 24px;">
-                  
-                  <div style="position:absolute;bottom:-24px;right:-12px;">
-                    <span style="font-size:86px;opacity:0.2;"
-                      class="socicon socicon-wordpress">
-                    </span>
-                  </div>
-
-                  <h4>WordPress Development</h4>
-
-                  <p>Plugins, themes, and cloud</p>
-
-                </div>
-
-                <div layout
-                  layout-align="center center">
-                  <div layout="column"
-                    style="width:100%;">
-                  
-                    <ul style="margin:0;list-style-type:none;padding:8px 0px 0px;">
-
-                      <li style="border-bottom: 1px solid rgba(0,0,0,0.12);"
-                        ng-repeat="$itm in $services.wordPress">
-                      
-                        <a href="{{ $itm.href }}"
-                          class="md-button {{ $itm.class }}"
-                          style="text-align:left;margin:0;border-radius:0;display:block;padding:4px 16px;">
-                          <md-icon class="material-icons"
-                            style="margin-right:8px;"
-                            ng-bind="$itm.icon">
-                          </md-icon>
-                          <span ng-bind="$itm.label"></span>
-                        </a>
-
-                      </li>
-                  
-                    </ul>
-
-                  </div>
-                </div>
+              <div style="{{ $services.cardStyle($group.code) }}">
                 
-                <md-card-actions style="background-color:#fafafa;margin:0;padding:8px;"
-                  layout-align="end center"
-                  layout="row">
-                  
-                  <md-button class="md-icon-button" aria-label="Docs">
-                    <md-icon class="material-icons">book</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Contact">
-                    <md-icon class="material-icons">mail_outline</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="View">
-                    <md-icon class="material-icons">chevron_right</md-icon>
-                  </md-button>
-                  
-                </md-card-actions>
-
-              </md-card>
-
-            </div>
-          </div>
-
-          <div style="padding:8px;" flex>
-            <div layout="column">
-
-              <md-card>
-
-                <div style="background-color:#43853d;background:linear-gradient(to bottom,#37474F 0,#263238 100%);color:#fff;padding:8px 24px;">
-                  <h4>Apps &amp; APIs</h4>
-                  <p>Web, mobile, and native</p>
+                <div ng-if="'WP' === $group.code"
+                  style="position:absolute;bottom:-24px;right:-12px;">
+                  <span style="font-size:86px;opacity:0.2;"
+                    class="socicon socicon-wordpress">
+                  </span>
                 </div>
 
-                <div layout
-                  layout-align="center center">
-                  <div layout="column"
-                    style="width:100%;">
-                  
-                    <ul style="margin:0;list-style-type:none;padding:8px 0px 0px;">
+                <h4 ng-bind="$group.label"></h4>
 
-                      <li style="border-bottom: 1px solid rgba(0,0,0,0.12);"
-                        ng-repeat="$itm in $services.appsApis">
-                      
-                        <a href="{{ $itm.href }}"
-                          class="md-button {{ $itm.class }}"
-                          style="text-align:left;margin:0;border-radius:0;display:block;padding:4px 16px;">
-                          <md-icon class="material-icons"
-                            style="margin-right:8px;"
-                            ng-bind="$itm.icon">
-                          </md-icon>
-                          <span ng-bind="$itm.label"></span>
-                        </a>
+                <p ng-bind="$group.tag_line"></p>
 
-                      </li>
-                  
-                    </ul>
+              </div>
 
-                  </div>
-                </div>
+              <div layout
+                layout-align="center center">
+
+                <div layout="column"
+                  style="width:100%;">
                 
-                <md-card-actions style="background-color:#fafafa;margin:0;padding:8px;"
-                  layout-align="end center"
-                  layout="row">
-                  
-                  <md-button class="md-icon-button" aria-label="Docs">
-                    <md-icon class="material-icons">book</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Contact">
-                    <md-icon class="material-icons">mail_outline</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="View">
-                    <md-icon class="material-icons">chevron_right</md-icon>
-                  </md-button>
-                  
-                </md-card-actions>
+                  <ul style="margin:0;list-style-type:none;padding:8px 0px 0px;">
 
-              </md-card>
+                    <li style="border-bottom: 1px solid rgba(0,0,0,0.12);"
+                      ng-repeat="$itm in $group.members">
+                    
+                      <a href="{{ $services.itmHref($itm.code) }}"
+                        class="md-button {{ $services.itmClass($itm.code) }}"
+                        style="text-align:left;margin:0;border-radius:0;display:block;padding:4px 16px;">
+                        <md-icon class="material-icons"
+                          style="margin-right:8px;"
+                          ng-bind="$services.itmIcon($itm.code)">
+                        </md-icon>
+                        <span ng-bind="$itm.label"></span>
+                      </a>
 
-            </div>
-          </div>
-
-          <div style="padding:8px;" flex>
-            <div layout="column">
-
-              <md-card>
-
-                <div style="background-color:#eeba37;background:linear-gradient(to top right,#FF9100 0,#eeba37 100%);color:#fff;padding:8px 24px;">
-                  <h4>AWS</h4>
-                  <p>Dev-ops, automation, and security</p>
-                </div>
-
-                <div layout
-                  layout-align="center center">
-                  <div layout="column"
-                    style="width:100%;">
-                  
-                    <ul style="margin:0;list-style-type:none;padding:8px 0px 0px;">
-
-                      <li style="border-bottom: 1px solid rgba(0,0,0,0.12);"
-                        ng-repeat="$itm in $services.awsServices">
-                      
-                        <a href="{{ $itm.href }}"
-                          class="md-button {{ $itm.class }}"
-                          style="text-align:left;margin:0;border-radius:0;display:block;padding:4px 16px;">
-                          <md-icon class="material-icons"
-                            style="margin-right:8px;"
-                            ng-bind="$itm.icon">
-                          </md-icon>
-                          <span ng-bind="$itm.label"></span>
-                        </a>
-
-                      </li>
-                  
-                    </ul>
-
-                  </div>
-                </div>
+                    </li>
                 
-                <md-card-actions style="background-color:#fafafa;margin:0;padding:8px;"
-                  layout-align="end center"
-                  layout="row">
+                  </ul>
 
-                  <md-button class="md-icon-button" aria-label="Docs">
-                    <md-icon class="material-icons">book</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Contact">
-                    <md-icon class="material-icons">mail_outline</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="View">
-                    <md-icon class="material-icons">chevron_right</md-icon>
-                  </md-button>
+                </div>
 
-                </md-card-actions>
+              </div>
+              
+              <md-card-actions style="background-color:#fafafa;margin:0;padding:8px;"
+                layout-align="end center"
+                layout="row">
+                
+                <md-button class="md-icon-button" aria-label="Docs">
+                  <md-icon class="material-icons">book</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Contact">
+                  <md-icon class="material-icons">mail_outline</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="View">
+                  <md-icon class="material-icons">chevron_right</md-icon>
+                </md-button>
+                
+              </md-card-actions>
 
-              </md-card>
+            </md-card>
 
-            </div>
           </div>
 
         </div>

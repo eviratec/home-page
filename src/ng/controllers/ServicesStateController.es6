@@ -16,8 +16,14 @@
 
 app.controller('ServicesStateController', ServicesStateController);
 
-ServicesStateController.$inject = ['$scope', '$animate', '$mdDialog'];
-function ServicesStateController (  $scope,   $animate,   $mdDialog) {
+ServicesStateController.$inject = ['$scope', '$animate', '$mdDialog', '$queryCache'];
+function ServicesStateController (  $scope,   $animate,   $mdDialog,   $queryCache) {
+
+  const SERVICES = $queryCache.entity('eviratec/services.json');
+
+  SERVICES.download().then((query, res) => {
+    console.log(query, res);
+  });
 
   class ServicesStateController {
 
@@ -26,88 +32,44 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog) {
       this.header = {
         headline: 'Services & Service Rates',
       };
-     
-      this.wordPress = [{
-        icon: 'extension',
-        label: 'Plugin development',
-        href: '',
-        class: '',
-      }, {
-        icon: 'style',
-        label: 'Theme development',
-        href: '',
-        class: '',
-      }, {
-        icon: 'settings_backup_restore',
-        label: 'Backups & restorations',
-        href: '',
-        class: '',
-      }, {
-        icon: 'settings_application',
-        label: 'Installations & setups',
-        href: '',
-        class: '',
-      }, {
-        icon: 'security',
-        label: 'Updates & security',
-        href: '',
-        class: '',
-      }];
-     
-      this.appsApis = [{
-        icon: 'web',
-        label: 'Web apps',
-        href: '',
-        class: '',
-      }, {
-        icon: 'developer_mode',
-        label: 'Mobile apps',
-        href: '',
-        class: '',
-      }, {
-        icon: 'devices',
-        label: 'Desktop apps',
-        href: '',
-        class: '',
-      }, {
-        icon: 'storage',
-        label: 'API & SDK design',
-        href: '',
-        class: '',
-      }, {
-        icon: 'security',
-        label: 'Stack & data security',
-        href: '',
-        class: '',
-      }];
-     
-      this.awsServices = [{
-        icon: '',
-        label: 'Lambda script dev',
-        href: '',
-        class: '',
-      }, {
-        icon: '',
-        label: 'EC2 set-up & maintainence',
-        href: '',
-        class: '',
-      }, {
-        icon: '',
-        label: 'VPC set-up & maintainence',
-        href: '',
-        class: '',
-      }, {
-        icon: '',
-        label: 'Route53, domains, & DNS',
-        href: '',
-        class: '',
-      }, {
-        icon: '',
-        label: 'IAM policy management',
-        href: '',
-        class: '',
-      }];
 
+      this.groups = SERVICES;
+
+      this.cardStylesByGroupCode = {
+        WP: "position:relative;background-color:#0087be;background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);color:#fff;padding:8px 24px;",
+        APP_DEV: "background-color:#43853d;background:linear-gradient(to bottom,#37474F 0,#263238 100%);color:#fff;padding:8px 24px;",
+        AWS: "background-color:#eeba37;background:linear-gradient(to top right,#FF9100 0,#eeba37 100%);color:#fff;padding:8px 24px;"
+      };
+
+      this.iconsByServiceCode = {
+        WP_PLUGIN_DEV: 'extension',
+        WP_THEME_DEV: 'style',
+        WP_DR: 'settings_backup_restore',
+        WP_SETUP: 'settings_application',
+        WP_MAINTENANCE: 'security',
+        WEB_APP_DEV: 'web',
+        MOBILE_APP_DEV: 'developer_mode',
+        DESKTOP_APP_DEV: 'devices',
+        API_SDK_DESIGN: 'storage',
+        DATA_STACK_SECURITY: 'security',
+      };
+
+    }
+
+    itmIcon (serviceCode) {
+      return this.iconsByServiceCode[serviceCode] || '';
+    }
+
+    itmHref (serviceCode) {
+      return '';
+    }
+
+    itmClass (serviceCode) {
+      return '';
+    }
+
+    cardStyle (groupCode) {
+      return this.cardStylesByGroupCode[groupCode] || '';
     }
 
   }

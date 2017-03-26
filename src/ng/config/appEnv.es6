@@ -27,6 +27,8 @@ function appEnv (  $appEnvironmentProvider) {
 
   .setDefaults({
     appTitle: 'Eviratec Web Application',
+    entityCacheUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/pub.cache.eviratec.software/entities/',
+    queryCacheUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/pub.cache.eviratec.software/queries/',
     msgSendVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
     msgRecieveVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
     msgIdPrefix: 'dev/local/default/',
