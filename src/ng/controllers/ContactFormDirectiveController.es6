@@ -16,19 +16,50 @@
 
 app.controller('ContactFormDirectiveController', ContactFormDirectiveController);
 
-ContactFormDirectiveController.$inject = ['$scope', '$animate', '$mdDialog', 'ContactMessage', 'messageSender', '$progressRegistry', 'CONTACT_FORM_PROGRESS'];
-function ContactFormDirectiveController (  $scope,   $animate,   $mdDialog,   ContactMessage,   messageSender,   $progressRegistry,   CONTACT_FORM_PROGRESS) {
+ContactFormDirectiveController.$inject = ['$scope', '$animate', '$timeout', '$mdDialog', 'ContactMessage', 'messageSender', '$progressRegistry', 'CONTACT_FORM_PROGRESS'];
+function ContactFormDirectiveController (  $scope,   $animate,   $timeout,   $mdDialog,   ContactMessage,   messageSender,   $progressRegistry,   CONTACT_FORM_PROGRESS) {
+
+  const NEW = 'NEW';
+  const SUBMITTED = 'SUBMITTED';
+  const SENDING = 'SENDING';
+  const ERROR = 'ERROR';
+  const DONE = 'DONE';
 
   class ContactFormDirectiveController {
 
     constructor () {
       
-      this.isLocked = false;
-      this.inProgress = false;
+      this.state = NEW;
       this.data = {};
 
       this.progressTracker = $progressRegistry.tracker(CONTACT_FORM_PROGRESS);
       
+    }
+
+    get isLocked () {
+      return SUBMITTED === this.state ||
+        SENDING === this.state ||
+        DONE === this.state;
+    }
+
+    get isSending () {
+      return SENDING === this.state;
+    }
+
+    get isError () {
+      return ERROR === this.state;
+    }
+
+    get isDone () {
+      return DONE === this.state;
+    }
+
+    get state () {
+      return this._state;
+    }
+
+    set state (newValue) {
+      return this._state = newValue;
     }
 
     submit ($event) {
@@ -43,32 +74,34 @@ function ContactFormDirectiveController (  $scope,   $animate,   $mdDialog,   Co
         return this;
       }
 
-      this.lock()
-        .showProgress();
+      this.state = SUBMITTED;
+
+      this.showProgress();
 
       data = Object.assign({}, this.data);
       message = newContactMessage(data);
 
+      this.state = SENDING;
+
       messageSender
         .send(message)
         .then(response => {
+
+          $timeout(() => {
+            this.state = DONE;
+            this.hideProgress();
+          });
+
           showSuccessDialog($event);
+
         })
         .catch(error => {
-          this.unlock()
-            .hideProgress();
+          $timeout(() => {
+            this.state = ERROR;
+            this.hideProgress();
+          });
         });
 
-    }
-
-    lock () {
-      this.isLocked = true;
-      return this;
-    }
-
-    unlock () {
-      this.isLocked = false;
-      return this;
     }
 
     showProgress () {
@@ -84,16 +117,18 @@ function ContactFormDirectiveController (  $scope,   $animate,   $mdDialog,   Co
   }
 
   function showSuccessDialog (ev) {
-    $mdDialog.show(
-      $mdDialog.alert()
-        .parent(angular.element(document.body))
-        .clickOutsideToClose(true)
-        .title('Thanks!')
-        .textContent('Your message has been delivered successfully.')
-        .ariaLabel('Successful submission message')
-        .ok('Great')
-        .targetEvent(ev)
-    );
+
+    let dialog = $mdDialog.alert()
+      .parent(angular.element(document.body))
+      .clickOutsideToClose(true)
+      .title('Thanks!')
+      .textContent('Your message has been delivered successfully.')
+      .ariaLabel('Successful submission message')
+      .ok('Great')
+      .targetEvent(ev);
+
+    return $mdDialog.show(dialog);
+
   }
 
   function newContactMessage (d) {

@@ -16,8 +16,8 @@
 
 app.controller('ContactStateController', ContactStateController);
 
-ContactStateController.$inject = ['$scope', '$animate', '$progressRegistry', 'CONTACT_FORM_PROGRESS', '$dbx'];
-function ContactStateController (  $scope,   $animate,   $progressRegistry,   CONTACT_FORM_PROGRESS,   $dbx) {
+ContactStateController.$inject = ['$scope', '$animate', '$timeout', '$progressRegistry', 'CONTACT_FORM_PROGRESS', '$dbx'];
+function ContactStateController (  $scope,   $animate,   $timeout,   $progressRegistry,   CONTACT_FORM_PROGRESS,   $dbx) {
 
   class ContactStateController {
 
@@ -30,11 +30,15 @@ function ContactStateController (  $scope,   $animate,   $progressRegistry,   CO
       let contactFormProgress = $progressRegistry.tracker(CONTACT_FORM_PROGRESS);
 
       contactFormProgress.on('start', () => {
-        this.showProgressEl();
+        $timeout(() => {
+          this.showProgressEl();
+        });
       });
 
       contactFormProgress.on('stop', () => {
-        this.hideProgressEl();
+        $timeout(() => {
+          this.hideProgressEl();
+        });
       });
 
     }

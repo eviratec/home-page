@@ -27,8 +27,8 @@ function appEnv (  $appEnvironmentProvider) {
 
   .setDefaults({
     appTitle: 'Eviratec Web Application',
-    msgSendVia: 'https://s3-ap-southeast-2.amazonaws.com/au.cmd.eviratec.software/',
-    msgRecieveVia: 'https://s3-ap-southeast-2.amazonaws.com/au.cmd.eviratec.software/',
+    msgSendVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
+    msgRecieveVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
     msgIdPrefix: 'dev/local/default/',
     copyright: 'Copyright © 2016 Callan Peter Milne.',
   })

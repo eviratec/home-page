@@ -34,7 +34,7 @@
 
             <input name="givenName"
               ng-model="$form.data.givenName"
-              ng-disabled="true === $form.isLocked"
+              ng-disabled="$form.isLocked"
               ng-focus="true"
               required>
 
@@ -50,7 +50,7 @@
 
             <input name="familyName"
               ng-model="$form.data.familyName"
-              ng-disabled="true === $form.isLocked"
+              ng-disabled="$form.isLocked"
               ng-focus="true"
               required>
 
@@ -73,7 +73,7 @@
             <md-select name="respondVia"
               ng-model="$form.data.respondVia"
               placeholder="How should we get in touch?"
-              ng-disabled="true === $form.isLocked"
+              ng-disabled="$form.isLocked"
               required>
               <md-option value="phone">By phone</md-option>
               <md-option value="email">By e-mail</md-option>
@@ -95,7 +95,7 @@
               type="phone"
               ng-model="$form.data.contactPhone"
               ng-required="'phone' === $form.data.respondVia"
-              ng-disabled="true === $form.isLocked" />
+              ng-disabled="$form.isLocked" />
 
             <div ng-messages="contact.contactPhone.$error">
               <div ng-message="required">Phone number is required</div>
@@ -115,7 +115,7 @@
               ng-pattern="/^.+@.+\..+$/"
               ng-model="$form.data.contactEmail"
               ng-required="'email' === $form.data.respondVia"
-              ng-disabled="true === $form.isLocked" />
+              ng-disabled="$form.isLocked" />
 
             <div ng-messages="contact.contactEmail.$error">
               <div ng-message="required">Email address is required</div>
@@ -133,7 +133,7 @@
 
         <textarea name="message"
           ng-model="$form.data.message"
-          ng-disabled="true === $form.isLocked"
+          ng-disabled="$form.isLocked"
           md-maxlength="500"
           rows="3"
           max-rows="4"
@@ -152,11 +152,28 @@
       <div>
         <div layout="row"
           layout-align="end center">
+          
+          <div ng-if="$form.isDone"
+            layout-align="start center"
+            layout="row"
+            layout>
+            
+            <md-icon class="material-icons"
+              style="color:#8BC34A;margin-right:8px;">
+              check
+            </md-icon>
+            
+            <span>Message sent.</span>
+
+          </div>
+
           <md-button type="submit"
             class="md-primary"
-            ng-disabled="true === $form.isLocked">
+            ng-hide="$form.isDone"
+            ng-disabled="$form.isLocked">
             <span>Send message</span>
           </md-button>
+
         </div>
       </div>
 
