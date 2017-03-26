@@ -19,9 +19,10 @@ footer.page-footer {
 }
 
 footer.page-footer .footer-content {
-  padding:0px 24px;
-  width:1010px;
-  z-index:10;
+  padding: 0px 24px;
+  width: 1010px;
+  z-index: 10;
+  color: rgba(255,255,255,0.7);
 }
 
 footer.page-footer .footer-content .footer-column {
@@ -30,4 +31,17 @@ footer.page-footer .footer-content .footer-column {
 
 footer.page-footer .footer-content {
   padding: 8px;
+}
+
+footer.page-footer .footer-content .social-links a {
+  line-height: 32px;
+  color: rgba(255,255,255,0.7);
+}
+
+footer.page-footer .footer-content .social-links a div span {
+  font-size: 24px;
+}
+
+footer.page-footer .copyright-notice .footer-content {
+  padding: 8px 16px 16px;
 }

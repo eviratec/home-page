@@ -137,29 +137,33 @@ function ContactFormDirectiveController (  $scope,   $animate,   $timeout,   $md
     
     d = d || {};
 
-    configureAuthor(d, message);
+    configureReplyTo(d, message);
     configureMessage(d, message);
 
     return message;
 
   }
 
-  function configureAuthor (d, message) {
+  function configureReplyTo (d, message) {
     
-    message.author.displayName = d.contactName;
+    message.reply_to.name = contactPersonName(d);
 
     if (d.contactEmail) {
-      message.author.emailAddress = d.contactEmail;
+      message.reply_to.email = d.contactEmail;
     }
 
     if (d.contactPhone) {
-      message.author.phoneNumber = d.contactPhone;
+      message.reply_to.phone = d.contactPhone;
     }
 
   }
 
+  function contactPersonName (d) {
+    return `${d.namePrefix}. ${d.familyName}, ${d.givenName}`;
+  }
+
   function configureMessage (d, message) {
-    message.content.body = JSON.stringify(d, undefined, '  ');
+    message.content = d.message;
   }
 
   return new ContactFormDirectiveController();

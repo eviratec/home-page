@@ -26,7 +26,7 @@ app.constant('SOCIAL_LINKS', [
   }, {
     tooltip: '/eviratec',
     icon: 'github',
-    href: 'https://www.github.com.au/eviratec',
+    href: 'https://www.github.com/eviratec',
   }, {
     tooltip: '/company/eviratec',
     icon: 'linkedin',

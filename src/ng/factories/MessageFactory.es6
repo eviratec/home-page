@@ -16,16 +16,16 @@
 
 app.factory('Message', MessageFactory);
 
-MessageFactory.$inject = ['uuid', 'MessageAuthor', 'MessageContent'];
-function MessageFactory (  uuid,   MessageAuthor,   MessageContent) {
+MessageFactory.$inject = ['uuid', 'MessageContent'];
+function MessageFactory (  uuid,   MessageContent) {
 
   class Message {
 
     constructor () {
 
       this.id = uuid.v4();
+      this.date = new Date();
 
-      this.author = new MessageAuthor();
       this.content = new MessageContent();
 
     }
@@ -33,9 +33,8 @@ function MessageFactory (  uuid,   MessageAuthor,   MessageContent) {
     toJSON () {
       return {
         id: this.id,
-        topic: 'OTHER',
-        author: this.author.toJSON(),
-        content: this.content.toJSON(),
+        date: this.date.toISOString(),
+        content: this.content,
       };
     }
 

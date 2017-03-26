@@ -16,24 +16,34 @@
 
 app.factory('ContactMessage', ContactMessageFactory);
 
-ContactMessageFactory.$inject = ['Message'];
-function ContactMessageFactory (  Message) {
+ContactMessageFactory.$inject = ['Message', 'ContactPerson'];
+function ContactMessageFactory (  Message,   ContactPerson) {
+
+  const WEB_FORM = 'web_form';
 
   class ContactMessage extends Message {
+
+    static get WEB_FORM () {
+      return WEB_FORM;
+    }
 
     constructor () {
 
       super();
 
+      this.reply_to = new ContactPerson();
+
     }
 
     toJSON () {
-      return {
-        id: this.id,
-        topic: 'CUSTOMER_CONTACT',
-        author: this.author.toJSON(),
-        content: this.content.toJSON(),
-      };
+
+      let json = super.toJSON();
+
+      json.reply_to = this.reply_to.toJSON();
+      json.source = WEB_FORM;
+
+      return json;
+      
     }
 
   }

@@ -14,30 +14,30 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.factory('MessageAuthor', MessageAuthorFactory);
+app.factory('ContactPerson', ContactPersonFactory);
 
-function MessageAuthorFactory () {
+function ContactPersonFactory () {
 
-  class MessageAuthor {
+  class ContactPerson {
 
     constructor () {
 
-      this.displayName = '';
-      this.emailAddress = '';
-      this.phoneNumber = '';
+      this.name = '';
+      this.email = '';
+      this.phone = '';
 
     }
 
     toJSON () {
       return {
-        displayName: this.displayName,
-        emailAddress: this.emailAddress || '_UNKNOWN',
-        phoneNumber: this.phoneNumber || '_UNKNOWN',
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
       };
     }
 
   }
 
-  return MessageAuthor;
+  return ContactPerson;
 
 }

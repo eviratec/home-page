@@ -82,6 +82,31 @@ web-app-root .contact-form-content button.md-raised.md-primary {
   /*background-color: #0091EA;*/
 }
 
+[ui-view] {
+  transition: opacity 400ms;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+[ui-view].ng-enter {
+  opacity: 0;
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+}
+
+[ui-view].ng-leave {
+  opacity: 1; 
+}
+
+[ui-view].ng-leave-active {
+  opacity: 0;
+}
+
 
 h2.md-headline {
   color: rgba(255,255,255,0.57);

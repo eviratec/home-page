@@ -39,6 +39,7 @@ function MessageTransporterFactory (  EventEmitter,   $http,   $logger) {
 
     send (message) {
       $logger.log('sending', message);
+      $logger.log('sending', JSON.stringify(message));
       return httpPut(message, this.writeMsgUrl(message));
     }
 

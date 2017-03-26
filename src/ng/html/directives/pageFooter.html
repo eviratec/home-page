@@ -30,7 +30,7 @@
       <div layout="column">
 
         <!-- Horizontal Social Media Menu -->
-        <div>
+        <div class="social-links">
           <div layout="row"
             layout-align="center center"
             style="color:rgba(255,255,255,0.7);">
@@ -38,16 +38,16 @@
             <a href="{{ $link.href }}" 
               class="md-button md-icon-button"
               ng-repeat="$link in $pageFooter.socialLinks"
-              style="line-height:32px;color: rgba(0,0,0,0.57);"
               target="_blank">
+
               <md-tooltip md-direction="top">
                 {{ $link.tooltip }}
               </md-tooltip>
+
               <div>
-                <span style="font-size: 24px;"
-                  class="socicon socicon-{{ $link.icon }}">
-                </span>
+                <span class="socicon socicon-{{ $link.icon }}"></span>
               </div>
+
             </a>
 
           </div>
@@ -72,7 +72,6 @@
   <div>
 
     <div class="footer-content"
-      layout-align="center center"
       layout="row">
 
       <span class="md-caption">
