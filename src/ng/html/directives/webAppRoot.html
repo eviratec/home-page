@@ -1,3 +1,39 @@
+<md-sidenav class="md-sidenav-left"
+  md-component-id="left"
+  md-whiteframe="4">
+
+  <md-content layout-padding>
+  
+    <!-- Vertical Sidebar Site Menu -->
+    <div class="main-menu">
+
+      <div layout="column"
+        layout-align="start start">
+      
+        <a href="/"
+          class="md-button md-icon-button md-primary">
+          <md-icon class="material-icons"
+            style="margin-right:8px;">
+            home
+          </md-icon>
+        </a>
+      
+        <a href="{{ $itm.href }}"
+          class="md-button {{ $itm.class }}"
+          ng-click="$webAppRoot.toggleSidenav()"
+          ng-repeat="$itm in $webAppRoot.menuItems">
+          <span ng-bind="$itm.label"></span>
+        </a>
+
+      </div>
+
+    </div>
+    <!-- Vertical Sidebar Site Menu -->
+
+  </md-content>
+
+</md-sidenav>
+
 <div layout="column"
   layout-fill>
 
@@ -15,7 +51,7 @@
           layout-align="center center">
 
           <img src="images/logov7c-dist.png"
-            style="height:36px;width:36px;"
+            style="height:36px;width:36px;margin-left:8px;"
             title="Eviratec Logo" />
 
           <h2 class="md-body-1"
@@ -28,8 +64,15 @@
 
         <div flex></div>
 
+        <md-button class="md-icon-button"
+          ng-click="$webAppRoot.toggleSidenav()"
+          hide-gt-xs>
+          <md-icon>menu</md-icon>
+        </md-button>
+
         <!-- Horizontal Site Menu -->
-        <div class="h-main-menu">
+        <div class="h-main-menu"
+          hide-xs>
 
           <div layout="row"
             layout-align="center center">

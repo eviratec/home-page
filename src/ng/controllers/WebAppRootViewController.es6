@@ -16,28 +16,59 @@
 
 app.controller('WebAppRootViewController', webAppRootViewController);
 
-webAppRootViewController.$inject = ['$scope', '$animate', '$appEnvironment', '$window', '$dbx'];
-function webAppRootViewController (  $scope,   $animate,   $appEnvironment,   $window,   $dbx) {
+webAppRootViewController.$inject = ['$scope', '$timeout', '$mdSidenav', '$animate', '$appEnvironment', '$window', '$dbx'];
+function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animate,   $appEnvironment,   $window,   $dbx) {
 
   class WebAppRootViewController {
 
+    static get LEFT_SIDENAV () {
+      return 'left';
+    }
+
     constructor () {
       
-      this.foo = 'bar';
+      this.sidenav = buildToggler(WebAppRootViewController.LEFT_SIDENAV);
 
       this.isLoading = true;
 
       this.copyright = $appEnvironment.config.copyright;
-
       this.menuItems = $dbx.links.nav.global;
 
-      $scope.currentNavItem = 'home';
-      
+      function buildToggler (navID) {
+        return function() {
+          // Component lookup should always be available since we are not using `ng-if`
+          $mdSidenav(navID)
+            .toggle()
+            .then(function () {
+              console.log("toggle left is done");
+            });
+        };
+      }
+
+    }
+
+    toggleSidenav () {
+      // Component lookup should always be available since we are not using `ng-if`
+      $mdSidenav(WebAppRootViewController.LEFT_SIDENAV)
+        .toggle()
+        .then(function () {
+          console.log("toggle left is done");
+        });
+    }
+
+    isOpenSidenav () {
+      return $mdSidenav(WebAppRootViewController.LEFT_SIDENAV).isOpen();
     }
 
     goto (location) {
       $window.location.pathname = location;
     }
+
+    // toggleSidenav ($event) {
+    //   $timeout(() => {
+    //     this.sidenav.toggle();
+    //   });
+    // }
 
   }
 
