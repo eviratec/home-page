@@ -14,28 +14,23 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-section#services {
-  background-color: #242424;
-  border-top: 1px solid rgba(255,255,255,0.12);
-}
+app.controller('ProductsStateController', ProductsStateController);
 
-section#services header md-icon {
+ProductsStateController.$inject = [];
+function ProductsStateController () {
 
-}
+  class ProductsStateController {
 
-section#services header h1 {
+    constructor () {
 
-}
+      this.header = {
+        headline: 'Products & Product Pricing',
+      };
 
-section#services md-card {
-  
-}
+    }
 
-section#services md-card p {
-  font-family: 'Signika Negative',Roboto,sans-serif;
-}
+  }
 
-section#services md-card h4 {
-  font-family: 'Signika Negative',Roboto,sans-serif;
-  margin: 16px 0;
+  return new ProductsStateController();
+
 }

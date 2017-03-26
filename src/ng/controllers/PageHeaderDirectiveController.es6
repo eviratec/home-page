@@ -14,28 +14,24 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-section#services {
-  background-color: #242424;
-  border-top: 1px solid rgba(255,255,255,0.12);
-}
+app.controller('PageHeaderDirectiveController', PageHeaderDirectiveController);
 
-section#services header md-icon {
+PageHeaderDirectiveController.$inject = ['$scope'];
+function PageHeaderDirectiveController (  $scope) {
 
-}
+  class PageHeaderDirectiveController {
 
-section#services header h1 {
+    constructor () {
 
-}
+      let header = $scope.ngModel || {};
 
-section#services md-card {
-  
-}
+      this.icon = header.icon || 'chevron_right';
+      this.headline = header.headline || 'New page';
 
-section#services md-card p {
-  font-family: 'Signika Negative',Roboto,sans-serif;
-}
+    }
 
-section#services md-card h4 {
-  font-family: 'Signika Negative',Roboto,sans-serif;
-  margin: 16px 0;
+  }
+
+  return new PageHeaderDirectiveController();
+
 }

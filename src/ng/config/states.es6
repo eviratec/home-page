@@ -31,7 +31,7 @@ function appStates (  $stateProvider) {
 
   $stateProvider.state('products', {
     url: '/products',
-    template: '<products-state id="products" class="state-wrapper"></list-state>',
+    template: '<products-state class="state-wrapper"></list-state>',
   });
 
   $stateProvider.state('products.ssl-certificates', {

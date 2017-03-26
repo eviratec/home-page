@@ -38,7 +38,7 @@ function splashScreenIntro () {
 
   let statusIndicatorTransitionSteps = [
     () => { showStatusIndicator() },
-    () => { setTimeout(() => { hideStatusIndicator() }, 1388) },
+    () => { setTimeout(() => { hideStatusIndicator() }, 690) },
     () => { hideLogoEl(); hideSplashScreen() },
   ];
 

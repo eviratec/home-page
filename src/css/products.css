@@ -14,28 +14,15 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-section#services {
+section#products {
   background-color: #242424;
   border-top: 1px solid rgba(255,255,255,0.12);
 }
 
-section#services header md-icon {
+section#products header md-icon {
 
 }
 
-section#services header h1 {
+section#products header h1 {
 
-}
-
-section#services md-card {
-  
-}
-
-section#services md-card p {
-  font-family: 'Signika Negative',Roboto,sans-serif;
-}
-
-section#services md-card h4 {
-  font-family: 'Signika Negative',Roboto,sans-serif;
-  margin: 16px 0;
 }

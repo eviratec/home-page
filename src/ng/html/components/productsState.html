@@ -3,34 +3,8 @@
   layout="column"
   layout-fill>
   
-  <header>
-
-    <div layout="row"
-      layout-align="start center">
-
-      <div flex></div>
-
-      <div style="width:960px;z-index:10;"
-        layout-align="center center"
-        layout>
-
-        <md-icon class="material-icons"
-          style="font-size:36px;height:36px;width:36px;margin-right:16px;">
-          chevron_right
-        </md-icon>
-
-        <h1 id="headline">
-          <span>Products &amp; Product Pricing</span>
-        </h1>
-
-        <div flex></div>
-
-      </div>
-
-      <div flex></div>
-
-    </div>
-
+  <header ng-model="$products.header"
+    page-header>
   </header>
 
   <div style="width:100%;"
@@ -39,111 +13,7 @@
     flex>
 
     <md-content layout-fill>
-
-      <div layout="row"
-        layout-align="start center">
-
-        <div flex></div>
-
-        <div style="width:1010px;"
-          layout="row">
-
-          <div style="padding:8px;" flex>
-            <div layout="column">
-
-              <md-card>
-                <div style="background-color:#0087be;    background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);color:#fff;padding:8px 24px;">
-                  <h4>WordPress</h4>
-                  <p>Plugins, themes, and cloud</p>
-                </div>
-                <md-card-actions layout="row" layout-align="end center">
-                  <md-button class="md-icon-button" aria-label="Docs">
-                    <md-icon class="material-icons">book</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Contact">
-                    <md-icon class="material-icons">mail_outline</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="View">
-                    <md-icon class="material-icons">chevron_right</md-icon>
-                  </md-button>
-                </md-card-actions>
-              </md-card>
-
-            </div>
-          </div>
-
-          <div style="padding:8px;" flex>
-            <div layout="column">
-
-              <md-card>
-                <div style="background-color:#43853d;background:linear-gradient(to bottom,#37474F 0,#263238 100%);color:#fff;padding:8px 24px;">
-                  <h4>Node.js</h4>
-                  <p>APIs, tools, and web services</p>
-                </div>
-                <md-card-actions layout="row" layout-align="end center">
-                  <md-button class="md-icon-button" aria-label="Docs">
-                    <md-icon class="material-icons">book</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Contact">
-                    <md-icon class="material-icons">mail_outline</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="View">
-                    <md-icon class="material-icons">chevron_right</md-icon>
-                  </md-button>
-                </md-card-actions>
-              </md-card>
-
-              <md-card>
-                <div style="background-color:#D32F2F;background:linear-gradient(to top,#D32F2F 0,#B71C1C 100%);color:#fff;padding:8px 24px;">
-                  <h4>Angular.js</h4>
-                  <p>Apps, and GUIs</p>
-                </div>
-                <md-card-actions layout="row" layout-align="end center">
-                  <md-button class="md-icon-button" aria-label="Docs">
-                    <md-icon class="material-icons">book</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Contact">
-                    <md-icon class="material-icons">mail_outline</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="View">
-                    <md-icon class="material-icons">chevron_right</md-icon>
-                  </md-button>
-                </md-card-actions>
-              </md-card>
-
-            </div>
-          </div>
-
-          <div style="padding:8px;" flex>
-            <div layout="column">
-
-              <md-card>
-                <div style="background-color:#eeba37;background:linear-gradient(to top right,#FF9100 0,#eeba37 100%);color:#fff;padding:8px 24px;">
-                  <h4>AWS</h4>
-                  <p>Dev-ops, automation, and security</p>
-                </div>
-                <md-card-actions layout="row" layout-align="end center">
-                  <md-button class="md-icon-button" aria-label="Docs">
-                    <md-icon class="material-icons">book</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Contact">
-                    <md-icon class="material-icons">mail_outline</md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="View">
-                    <md-icon class="material-icons">chevron_right</md-icon>
-                  </md-button>
-                </md-card-actions>
-              </md-card>
-
-            </div>
-          </div>
-
-        </div>
-
-        <div flex></div>
-
-      </div>
-      
+      Meow
     </md-content>
 
   </div>

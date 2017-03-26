@@ -22,6 +22,10 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog) {
   class ServicesStateController {
 
     constructor () {
+
+      this.header = {
+        headline: 'Services & Service Rates',
+      };
      
       this.wordPress = [{
         icon: 'extension',
@@ -43,11 +47,6 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog) {
         label: 'Installations & setups',
         href: '',
         class: '',
-      // }, {
-      //   icon: 'store',
-      //   label: 'Store setup & management',
-      //   href: '',
-      //   class: '',
       }, {
         icon: 'security',
         label: 'Updates & security',

@@ -14,28 +14,8 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-section#services {
-  background-color: #242424;
-  border-top: 1px solid rgba(255,255,255,0.12);
-}
+app.component('productsState', {
+  controller: 'ProductsStateController as $products',
+  templateUrl: 'html/components/productsState.html',
+});
 
-section#services header md-icon {
-
-}
-
-section#services header h1 {
-
-}
-
-section#services md-card {
-  
-}
-
-section#services md-card p {
-  font-family: 'Signika Negative',Roboto,sans-serif;
-}
-
-section#services md-card h4 {
-  font-family: 'Signika Negative',Roboto,sans-serif;
-  margin: 16px 0;
-}

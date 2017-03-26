@@ -27,6 +27,10 @@ function ContactStateController (  $scope,   $animate,   $timeout,   $progressRe
 
       this.socialLinks = $dbx.links.social;
 
+      this.header = {
+        headline: 'Contact us',
+      };
+
       let contactFormProgress = $progressRegistry.tracker(CONTACT_FORM_PROGRESS);
 
       contactFormProgress.on('start', () => {

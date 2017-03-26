@@ -36,7 +36,6 @@ section header h1 {
 section .state-content-root {
   background-color: #eee;
   background: linear-gradient(to bottom, #dadada 0, #eee 32px);
-  padding-top: 32px;
   box-sizing: border-box;
 }
 
