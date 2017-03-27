@@ -1,6 +1,5 @@
 <section id="products"
   class="state-section"
-  layout-align="start center"
   layout="column"
   layout-fill>
   
@@ -16,17 +15,46 @@
     <md-content style="overflow-x:hidden;">
 
       <div class="state-content"
-        layout-align="start center"
         layout="row">
     
-        Meow
+        <div style="text-align:center;font-family:'Signika Negative',Roboto,sans-serif;"
+          flex>
+          <h3>
+            <em>Coming soon...</em>
+          </h3>
+          <p>=D</p>
+        </div>
 
       </div>
-  
-      <footer page-footer>
-      </footer>
+
+      <!-- Vertical Site Menu -->
+      <div layout
+        style="background-color:#212121;padding:16px;background:linear-gradient(to top left,#d268ac 0,#1e88e5 100%);"
+        layout-align="center center"
+        layout-align-xs="start stretch"
+        hide-gt-xs>
+        <div layout="column"
+          flex>
+        
+          <a href="{{ $itm.href }}"
+            class="md-button md-raised {{ $itm.class }}"
+            style="margin:8px;"
+            ng-repeat="$itm in $products.menuItems">
+            <md-icon class="material-icons"
+              style="margin-right:8px;"
+              ng-bind="$itm.icon">
+            </md-icon>
+            <span ng-bind="$itm.label"></span>
+          </a>
+
+        </div>
+      </div>
+      <!-- Vertical Site Menu -->
 
     </md-content>
+  
+    <footer page-footer>
+    </footer>
 
   </div>
 

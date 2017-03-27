@@ -18,7 +18,6 @@
 
 section.state-section {
   background-color: #37474F;
-  background: linear-gradient(to bottom right,#37474F 0,#263238 100%);
   border-top: 1px solid rgba(255,255,255,0.12);
 }
 
@@ -40,8 +39,6 @@ section.state-section header h1 {
 }
 
 section.state-section .state-content-root {
-  background-color: #37474F;
-  background: linear-gradient(to bottom right,#37474F 0,#263238 100%);
   box-sizing: border-box;
 }
 
