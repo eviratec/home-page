@@ -25,21 +25,34 @@ function CachedEntityFactory (  EventEmitter,   $http) {
 
       super();
 
+      this.isDownloaded = false;
       this.uri = uri || 'https://localhost/index.json';
       this.data = {};
 
     }
 
-    download () {
+    download (refresh = false) {
       return new Promise((resolve, reject) => {
-        $http.get(this.uri).then((res) => {
-          Object.assign(this.data, res.data || {});
-          resolve(this, res);
-        }, (err) => {
-          reject(err);
-        });
+
+        let isDownloaded = true === this.isDownloaded;
+        if (false === refresh && isDownloaded) {
+          return resolve(this);
+        }
+
+        this._httpGet(resolve, reject);
+
       });
     }
+
+    _httpGet (resolve, reject) {
+      $http.get(this.uri).then((res) => {
+        Object.assign(this.data, res.data || {});
+        resolve(this);
+      }, (err) => {
+        reject(err);
+      });
+    }
+
 
   }
 

@@ -8,16 +8,18 @@
     <div class="main-menu">
 
       <div layout="column"
-        layout-align="start start">
+        layout-align="start stretch">
       
-        <a href="/"
-          ng-click="$webAppRoot.toggleSidenav()"
-          class="md-button md-icon-button md-primary">
-          <md-icon class="material-icons"
-            style="margin-right:8px;">
-            home
-          </md-icon>
-        </a>
+        <div>
+          <a href="/"
+            ng-click="$webAppRoot.toggleSidenav()"
+            class="md-button md-icon-button md-primary">
+            <md-icon class="material-icons"
+              style="margin-right:8px;">
+              home
+            </md-icon>
+          </a>
+        </div>
       
         <a href="{{ $itm.href }}"
           class="md-button {{ $itm.class }}"

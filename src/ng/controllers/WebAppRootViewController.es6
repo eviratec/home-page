@@ -39,8 +39,8 @@ function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animat
           // Component lookup should always be available since we are not using `ng-if`
           $mdSidenav(navID)
             .toggle()
-            .then(function () {
-              console.log("toggle left is done");
+            .then(() => {
+              // meow.
             });
         };
       }
@@ -51,8 +51,8 @@ function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animat
       // Component lookup should always be available since we are not using `ng-if`
       $mdSidenav(WebAppRootViewController.LEFT_SIDENAV)
         .toggle()
-        .then(function () {
-          console.log("toggle left is done");
+        .then(() => {
+          // meow.
         });
     }
 
@@ -63,12 +63,6 @@ function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animat
     goto (location) {
       $window.location.pathname = location;
     }
-
-    // toggleSidenav ($event) {
-    //   $timeout(() => {
-    //     this.sidenav.toggle();
-    //   });
-    // }
 
   }
 

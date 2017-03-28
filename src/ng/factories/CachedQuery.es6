@@ -25,29 +25,39 @@ function CachedQueryFactory (  EventEmitter,   $http) {
 
       super();
 
+      this.isDownloaded = false;
       this.uri = uri || 'https://localhost/query.json';
       this.data = {};
 
     }
 
-    download () {
+    download (refresh = false) {
       return new Promise((resolve, reject) => {
 
-        $http({
-          method: 'GET',
-          url: this.uri,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then((res) => {
-          Object.assign(this.data, res.data || {});
-          this.emit('downloaded', this.data, res);
-          resolve(res);
-        }, (err) => {
-          this.emit('download_error', err);
-          reject(err);
-        });
+        let isDownloaded = true === this.isDownloaded;
+        if (false === refresh && isDownloaded) {
+          return resolve(this);
+        }
 
+        this._fetch(resolve, reject);
+
+      });
+    }
+
+    _fetch (resolve, reject) {
+      $http({
+        method: 'GET',
+        url: this.uri,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then(res => {
+        Object.assign(this.data, res.data || {});
+        this.emit('downloaded', this.data, res);
+        resolve(this);
+      }, err => {
+        this.emit('download_error', err);
+        reject(err);
       });
     }
 

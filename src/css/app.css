@@ -76,7 +76,7 @@ md-content.md-clearContent-theme {
 
 
 .contact-form-container {
-  
+
 }
 .web-app-container {
   width: 580px;
@@ -163,7 +163,7 @@ h2.md-headline span {
 }
 md-content#stageContent {
   background-color: #121212;
-  background: linear-gradient(to top left,#d268ac 0,#1e88e5 100%);
+  background: linear-gradient(to bottom right,#1e88e5 0,#d268ac 80%,#fdd835 100%);
 }
 index-state .social-ctas {
   margin-top: 32px;
@@ -206,14 +206,18 @@ index-state .social-ctas .social-cta a span.socicon {
 }
 
 .hero-anim .box {
+  animation: 138s ease-in-out 0s infinite rotate-hero;
+  background-color: rgba(255,255,255,0.1);
+  background-color: hsla(229,40%,15%,.5);
+  background: linear-gradient(to bottom,rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.125) 100%);
+  background: linear-gradient(to bottom,hsla(229,40%,15%,.5) 0,hsla(229,40%,15%,.125) 100%);
+  box-shadow: 0 2px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 50px hsla(229,40%,95%,.5);
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(255,255,255,0.1);
-  box-shadow: 0 2px 50px rgba(0,0,0,0.5);
-  animation: 150s ease 0s infinite rotate-hero;
 }
 
 ul.content-link-list {
