@@ -15,7 +15,7 @@
       }
     },
     "localDev": {
-      "hostname": "localhost",
+      "hostname": "0.0.0.0",
       "port": 9901,
       "liveReloadPort": 35730
     },

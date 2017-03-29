@@ -39,7 +39,7 @@ function appEnv (  $appEnvironmentProvider) {
    * Local dev environment
    */
 
-  .addEnvironment('localdev', ['127.0.0.1', 'localhost', /\.local$/i], {
+  .addEnvironment('localdev', ['127.0.0.1', 'localhost', '10.0.0.92', /\.local$/i], {
     appTitle: '127/ Eviratec Software :: Eviratec.local',
     contactEmail: 'info@eviratec.localhost',
     msgIdPrefix: 'dev/local/callan.milne/',

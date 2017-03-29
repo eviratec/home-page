@@ -20,8 +20,8 @@ function splashScreenIntro () {
 
   let loadingOverlayEl = document.createElement('div');
   
-  loadingOverlayEl.id = 'loadingOverlay';
-  loadingOverlayEl.style = 'opacity:1;';
+  loadingOverlayEl.setAttribute("id", 'loadingOverlay');
+  loadingOverlayEl.setAttribute("style", 'opacity:1;');
   loadingOverlayEl.innerHTML = 
 `<div class="status-indicator-wrapper">
   <div class="lhs-valign-helper"></div>
