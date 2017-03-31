@@ -8,6 +8,92 @@
     page-header>
   </header>
 
+  <div class="service-hero"
+    style="width: 100%;border-top:1px solid rgba(255,255,255,0.12);">
+
+    <div layout layout-align="center center">
+
+      <div style="width:1010px;padding:24px;"
+        layout="column"
+        layout-align="end stretch">
+        
+        <div flex="">
+
+          <div layout-xs="column"
+            layout="row"
+            layout-wrap>
+
+            <div flex-gt-xs="33"
+              ng-repeat="$group in $services.groups.data.groups"
+              flex-xs>
+
+              <md-card class="service-group">
+
+                <div class="card-header"
+                  style="overflow:hidden;position:relative;">
+                  
+                  <div ng-if="'WP' === $group.code"
+                    style="position:absolute;bottom:-24px;right:-12px;">
+                    <span style="font-size:86px;opacity:0.2;"
+                      class="socicon socicon-wordpress">
+                    </span>
+                  </div>
+
+                  <h4 ng-bind="$group.label"></h4>
+
+                  <p class="md-caption"
+                    ng-bind="$group.tag_line"></p>
+
+                </div>
+                
+                <md-card-actions layout-align="end center"
+                  layout="row">
+
+                  <span style="margin-left: 8px;font-family:'Ubuntu';color:rgba(255,255,255,0.5)">From $50 /hour</span>
+
+                  <span flex></span>
+                  
+                  <md-button aria-label="View">
+                    Details
+                    <md-icon class="material-icons">chevron_right</md-icon>
+                  </md-button>
+                  
+                </md-card-actions>
+
+              </md-card>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+        <div>
+          <div style="border-top: 1px solid rgba(255,255,255,0.12);margin-top: 24px;padding-top: 8px;"
+            layout-align="start end"
+            layout-xs="column"
+            layout="row">
+            <div>
+              <p class="md-display-1" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,0.7);">
+                Test driven, web development
+              </p>
+            </div>
+            <div class="flex"></div>
+            <div>
+              <a href="/contact" class="md-button md-raised md-primary">
+                <md-icon class="material-icons">call</md-icon>
+                Get a quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    
+  </div>
+
   <div style="width:100%;"
     class="state-content-root"
     md-theme="clearContent"
@@ -21,78 +107,127 @@
 
         <div flex></div>
 
-        <div style="width:1010px;padding:16px 8px;"
-          layout-xs="column"
-          layout="row">
+        <div style="width:1010px;padding:16px;"
+          layout="column">
 
-          <div style="padding:8px;"
-            ng-repeat="$group in $services.groups.data.groups"
-            flex>
-
-            <md-card>
-
-              <div style="{{ $services.cardStyle($group.code) }}">
-                
-                <div ng-if="'WP' === $group.code"
-                  style="position:absolute;bottom:-24px;right:-12px;">
-                  <span style="font-size:86px;opacity:0.2;"
-                    class="socicon socicon-wordpress">
-                  </span>
-                </div>
-
-                <h4 ng-bind="$group.label"></h4>
-
-                <p ng-bind="$group.tag_line"></p>
-
+          <div flex>
+            <div layout="column"
+              style="margin:16px;padding:16px;background:#fff;border-top: 5px solid #FF9100;"
+              md-whiteframe="2">
+              <div>
+                <p>Email newsletter</p>
+                <p>To stay informed about new products, services, and promotions.</p>
               </div>
+              <div>
+                <div class=""
+                  layout="row"
+                  layout-xs="column">
 
-              <div layout
-                layout-align="center center">
+                  <div flex>
 
-                <div layout="column"
-                  style="width:100%;">
-                
-                  <ul style="margin:0;list-style-type:none;padding:8px 0px 0px;">
+                    <div layout="row" layout-xs="column">
 
-                    <li style="border-bottom: 1px solid rgba(0,0,0,0.12);"
-                      ng-repeat="$itm in $group.members">
-                    
-                      <a href="/contact?quote={{ $itm.code }}"
-                        class="md-button {{ $services.itmClass($itm.code) }}"
-                        style="text-align:left;margin:0;border-radius:0;display:block;padding:4px 16px;">
-                        <md-icon class="material-icons"
-                          style="margin-right:8px;"
-                          ng-bind="$services.itmIcon($itm.code)">
-                        </md-icon>
-                        <span ng-bind="$itm.label"></span>
-                      </a>
+                      <md-input-container flex="20"
+                        flex-xs="100">
 
-                    </li>
-                
-                  </ul>
+                        <label>Title</label>
 
-                </div>
+                        <md-select name="namePrefix"
+                          ng-model="$form.data.namePrefix"
+                          ng-disabled="true === $form.isLocked"
+                          tab-index="1"
+                          required>
+                          <md-option value="Mr">Mr.</md-option>
+                          <md-option value="Mrs">Mrs.</md-option>
+                          <md-option value="Ms">Ms.</md-option>
+                          <md-option value="Miss">Miss</md-option>
+                        </md-select>
 
-              </div>
+                        <div ng-messages="contact.namePrefix.$error">
+                          <div ng-message="required">Your name prefix is required</div>
+                        </div>
+
+                      </md-input-container>
+
+                      <md-input-container flex="30"
+                        flex-xs="100">
+
+                        <label>Given name</label>
+
+                        <input name="givenName"
+                          ng-model="$form.data.givenName"
+                          ng-disabled="$form.isLocked"
+                          ng-focus="true"
+                          tab-index="2"
+                          required>
+
+                        <div ng-messages="contact.givenName.$error">
+                          <div ng-message="required">Your given name is required</div>
+                        </div>
+
+                      </md-input-container>
+
+                      <md-input-container flex="30"
+                        flex-xs="100">
+
+                        <label>Family name</label>
+
+                        <input name="familyName"
+                          ng-model="$form.data.familyName"
+                          ng-disabled="$form.isLocked"
+                          ng-focus="true"
+                          tab-index="3"
+                          required>
+
+                        <div ng-messages="contact.familyName.$error">
+                          <div ng-message="required">Your family name is required</div>
+                        </div>
+
+                      </md-input-container>
               
-              <md-card-actions style="background-color:#fafafa;margin:0;padding:8px;"
-                layout-align="end center"
-                layout="row">
-                
-                <md-button class="md-icon-button" aria-label="Docs">
-                  <md-icon class="material-icons">book</md-icon>
-                </md-button>
-                <md-button class="md-icon-button" aria-label="Contact">
-                  <md-icon class="material-icons">mail_outline</md-icon>
-                </md-button>
-                <md-button class="md-icon-button" aria-label="View">
-                  <md-icon class="material-icons">chevron_right</md-icon>
-                </md-button>
-                
-              </md-card-actions>
+                      <md-input-container flex="30"
+                        flex-xs="100">
 
-            </md-card>
+                        <label>Email address</label>
 
+                        <input name="contactEmail"
+                          type="email"
+                          minlength="10" 
+                          maxlength="100" 
+                          ng-pattern="/^.+@.+\..+$/"
+                          ng-model="$form.data.contactEmail"
+                          tab-index="6"
+                          ng-disabled="$form.isLocked"
+                          required>
+
+                        <div ng-messages="contact.contactEmail.$error">
+                          <div ng-message="required">Email address is required</div>
+                          <div ng-message="pattern">Invalid or incomplete address</div>
+                        </div>
+
+                      </md-input-container>
+                      
+                    </div>
+                  
+                  </div>
+
+                  <div flex="10">
+                    <md-button>
+                      Subscribe
+                    </md-button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div flex>
+            <div class=""
+              style="margin:16px;"
+              md-whiteframe="2">
+              Foo
+            </div>
           </div>
 
         </div>

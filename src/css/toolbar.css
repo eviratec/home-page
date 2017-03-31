@@ -34,3 +34,19 @@
 #toolbar .md-toolbar-tools .h-main-menu {
   color: rgba(255,255,255,0.7);
 }
+
+#toolbar .md-toolbar-tools .h-main-menu,
+#toolbar .md-toolbar-tools .h-main-menu a.md-button,
+#toolbar .md-toolbar-tools .h-main-menu a.md-button md-icon {
+  color: rgba(255,255,255,0.7);
+}
+
+#toolbar .md-toolbar-tools .h-main-menu a.md-button {
+  font-family: 'Signika Negative',Roboto,sans-serif;
+}
+
+#toolbar .md-toolbar-tools .h-main-menu a.md-button:hover,
+#toolbar .md-toolbar-tools .h-main-menu a.md-button:hover md-icon {
+  background-color: transparent;
+  color: rgba(255,255,255,1);
+}

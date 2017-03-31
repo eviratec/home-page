@@ -19,10 +19,10 @@ app.controller('ServicesStateController', ServicesStateController);
 ServicesStateController.$inject = ['$scope', '$animate', '$mdDialog', '$queryCache'];
 function ServicesStateController (  $scope,   $animate,   $mdDialog,   $queryCache) {
 
-  const SERVICES = $queryCache.entity('eviratec/services.json');
+  const SERVICES = $queryCache.entity('eviratec/services-extended.json');
 
   SERVICES.download().then((query, res) => {
-    console.log('eviratec/services.json fetched');
+    console.log('eviratec/services-extended.json fetched');
   });
 
   class ServicesStateController {
@@ -36,9 +36,9 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog,   $queryCac
       this.groups = SERVICES;
 
       this.cardStylesByGroupCode = {
-        WP: "position:relative;background-color:#0087be;background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);color:#fff;padding:8px 24px;",
-        APP_DEV: "background-color:#43853d;background:linear-gradient(to bottom,#37474F 0,#263238 100%);color:#fff;padding:8px 24px;",
-        AWS: "background-color:#eeba37;background:linear-gradient(to top right,#FF9100 0,#eeba37 100%);color:#fff;padding:8px 24px;"
+        WP: "position:relative;background-color:#0087be;background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);",
+        APP_DEV: "background-color:#43853d;background:linear-gradient(to bottom,#37474F 0,#263238 100%);",
+        AWS: "background-color:#eeba37;background:linear-gradient(to top right,#FF9100 0,#eeba37 100%);"
       };
 
       this.iconsByServiceCode = {

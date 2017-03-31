@@ -42,8 +42,8 @@ section.state-section .state-content-root {
 }
 
 section.state-section .state-content-root .state-content {
-  background-color: #eee;
-  background: linear-gradient(to bottom, #dadada 0, #eee 32px);
+  background-color: #f5f5f5;
+  background: linear-gradient(to bottom,#eee 0,#f5f5f5 32px);
 }
 
 section.state-section .state-content-root md-content.md-clearContent-theme .above-content-primary {
