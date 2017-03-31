@@ -38,7 +38,13 @@ function PriceFactory (  $filter) {
     }
 
     toString () {
+      
+      if (null === this.currency) {
+        return '';
+      }
+
       return this.prefix + $filter('currency')(this.amount, '', 2);
+      
     }
 
   }

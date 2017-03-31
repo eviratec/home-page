@@ -15,14 +15,74 @@
     <md-content style="overflow-x:hidden;">
 
       <div class="state-content"
+        layout-align="start center"
         layout="row">
 
-        <ul>
-          <li ng-repeat="$product in $products.catalogue.data.products">
-            {{ $product.headline }}
-            <span ng-bind="$products.listPrice($product).toString()"></span>
-          </li>
-        </ul>
+        <div flex></div>
+
+        <div style="width:1010px;padding:16px;"
+          layout="column">
+
+          <div class="product-group">
+            <div layout="row"
+              layout-xs="column"
+              layout-align-xs="start stretch">
+
+              <div class="group-aside"
+                flex
+                flex-gt-xs="30">
+                <h3 class="md-display-1">
+                  SSL Certificates
+                </h3>
+                <p>
+                  Keep your customers safe with our range of SSL Certificates.
+                </p>
+              </div>
+
+              <div class="group-content"
+                flex>
+
+                <div class="product-list" md-whiteframe="2">
+
+                  <ul class="group-products">
+                    <li ng-repeat="$product in $products.catalogue.data.products | orderBy : 'prices[0].amount'"
+                      ng-if="$product.prices[0]"
+                      layout="row"
+                      layout-align="start center">
+
+                      <span>{{ $product.headline }}</span>
+
+                      <span ng-if="'ev' === $product.code.substr(0,2)"
+                        style="font-size: 0.75em;background-color: #64DD17;color: rgba(255,255,255,0.7);padding: 4px;margin: 0 8px;border-radius: 2px;line-height:1;">
+                        EV
+                      </span>
+                      <span ng-if="'ov' === $product.code.substr(0,2)"
+                        style="font-size: 0.75em;background-color: #0091EA;color: rgba(255,255,255,0.7);padding: 4px;margin: 0 8px;border-radius: 2px;line-height:1;">
+                        OV
+                      </span>
+
+                      <span flex></span>
+
+                      <span ng-bind="$products.listPrice($product).toString()"></span>
+
+                    </li>
+                  </ul>
+
+                </div>
+
+                <div class="md-caption" 
+                  style="text-align: right;margin: 16px 0;color: rgba(0,0,0,0.38);">
+                  All prices quoted in AUD excl. GST
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div flex></div>
 
       </div>
 

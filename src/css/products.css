@@ -26,3 +26,36 @@ section#products header md-icon {
 section#products header h1 {
 
 }
+
+section#products .product-group .group-aside {
+
+}
+
+section#products .product-group .group-aside h3.md-display-1 {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+section#products .product-group .group-content .product-list {
+  background-color: #fff;
+}
+
+section#products .product-group .group-content,
+section#products .product-group .group-aside {
+  margin: 16px;
+}
+
+section#products .product-group .group-content .product-list ul.group-products {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+section#products .product-group .group-content .product-list ul.group-products li {
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  padding: 8px;
+}
+
+section#products .product-group .group-content .product-list ul.group-products li:hover {
+  background-color: rgba(0,0,0,0.06);
+}
