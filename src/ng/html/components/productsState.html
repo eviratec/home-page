@@ -35,17 +35,28 @@
                   SSL Certificates
                 </h3>
                 <p>
-                  Keep your customers safe with our range of SSL Certificates.
+                  <!-- Keep your information and customers safe with our range of SSL Certificates. -->
+                  Protect your web traffic, and increase shopper confidence, with our range of SSL Certificates.
                 </p>
               </div>
 
               <div class="group-content"
                 flex>
 
-                <div class="product-list" md-whiteframe="2">
+                <div class="product-list"
+                  ng-repeat="$vendor in $products.vendors"
+                  md-whiteframe="2">
+
+                  <div class="group-header"
+                    layout-align="start end"
+                    layout="row">
+                    <h4 ng-bind="$vendor.name"></h4>
+                    <span flex></span>
+                    <span class="md-caption">Per year</span>
+                  </div>
 
                   <ul class="group-products">
-                    <li ng-repeat="$product in $products.catalogue.data.products | orderBy : 'prices[0].amount'"
+                    <li ng-repeat="$product in $products.catalogue.data.products | orderBy : 'prices[0].amount' | filter : { vendor_id: $vendor.id }"
                       ng-if="$product.prices[0]"
                       layout="row"
                       layout-align="start center">

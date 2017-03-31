@@ -36,13 +36,32 @@ section#products .product-group .group-aside h3.md-display-1 {
   font-family: 'Ubuntu', sans-serif;
 }
 
+section#products .product-group .group-aside p {
+  font-family: 'Signika Negative',Roboto,sans-serif;
+  line-height: 1.5;
+}
+
 section#products .product-group .group-content .product-list {
   background-color: #fff;
+  margin-bottom: 32px;
 }
 
 section#products .product-group .group-content,
 section#products .product-group .group-aside {
   margin: 16px;
+}
+
+section#products .product-group .group-content .product-list .group-header {
+  padding: 16px 8px 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  background-color: #f5f5f5;
+}
+
+section#products .product-group .group-content .product-list .group-header h4 {
+  font-family: 'Signika Negative',Roboto,sans-serif;
+  margin: 0;
+  font-size: 2em;
+  font-weight: 200;
 }
 
 section#products .product-group .group-content .product-list ul.group-products {

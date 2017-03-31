@@ -33,6 +33,23 @@ function ProductsStateController (  $queryCache,   Price) {
         headline: 'Products & Product Pricing',
       };
 
+      this.vendors = [{
+        id: '356b4ec8-a556-4ea8-8b88-2801de4deba1',
+        name: 'Symantec',
+      }, {
+        id: 'bb95f5c4-35e4-4fd1-8b92-424eda9f37d6',
+        name: 'Thawte',
+      }, {
+        id: 'e58be64e-f4d7-407d-a61e-b1dea3dbb5a0',
+        name: 'GeoTrust',
+      }, {
+        id: '565d9353-ef34-4b8a-9da0-cb8f60e9e1f5',
+        name: 'Comodo',
+      }, {
+        id: '916bd31d-4b72-466d-a7b8-a5cc85f6808b',
+        name: 'RapidSSL',
+      }]
+
       this.catalogue = PRODUCTS;
 
     }
