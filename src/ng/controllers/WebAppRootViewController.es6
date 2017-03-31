@@ -16,8 +16,8 @@
 
 app.controller('WebAppRootViewController', webAppRootViewController);
 
-webAppRootViewController.$inject = ['$scope', '$timeout', '$mdSidenav', '$animate', '$appEnvironment', '$window', '$dbx'];
-function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animate,   $appEnvironment,   $window,   $dbx) {
+webAppRootViewController.$inject = ['$scope', '$timeout', '$mdSidenav', '$animate', '$appEnvironment', '$window', '$dbx', '$analytics'];
+function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animate,   $appEnvironment,   $window,   $dbx,   $analytics) {
 
   class WebAppRootViewController {
 
@@ -44,6 +44,10 @@ function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animat
             });
         };
       }
+
+      $scope.$on('$stateChangeSuccess', () => {
+        $analytics.trackPageView();
+      });
 
     }
 

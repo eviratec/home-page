@@ -33,6 +33,8 @@ function appEnv (  $appEnvironmentProvider) {
     msgRecieveVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
     msgIdPrefix: 'dev/local/default/',
     copyright: 'Copyright © 2016 Callan Peter Milne.',
+    analyticsEnabled: false,
+    analyticsTrackingCode: 'UA-XXXXXXXX-1',
   })
   
   /**
@@ -73,6 +75,8 @@ function appEnv (  $appEnvironmentProvider) {
     appTitle: 'Eviratec Software :: Eviratec.com.au',
     contactEmail: 'info@eviratec.com.au',
     msgIdPrefix: 'prod/www.eviratec.com.au/',
+    analyticsEnabled: true,
+    analyticsTrackingCode: 'UA-96534995-1',
   })
   
   .defaultEnvironmentName('local');
