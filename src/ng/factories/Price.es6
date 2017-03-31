@@ -14,35 +14,35 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.controller('ProductsStateController', ProductsStateController);
+app.factory('Price', PriceFactory);
 
-ProductsStateController.$inject = ['$queryCache', 'Price'];
-function ProductsStateController (  $queryCache,   Price) {
+PriceFactory.$inject = ['$filter'];
+function PriceFactory (  $filter) {
 
-  const PRODUCTS = $queryCache.entity('eviratec/products.json');
+  class Price {
 
-  PRODUCTS.download().then((query, res) => {
-    console.log('eviratec/products.json fetched');
-  });
+    constructor (model) {
 
-  class ProductsStateController {
-
-    constructor () {
-
-      this.header = {
-        headline: 'Products & Product Pricing',
+      model = model || {
+        amount: 0,
+        currency: null,
       };
 
-      this.catalogue = PRODUCTS;
+      this.amount = model.amount;
+      this.currency = model.currency;
 
     }
 
-    listPrice ($product) {
-      return new Price($product.prices[0]);
+    get prefix () {
+      return this.currency.prefix || '?';
+    }
+
+    toString () {
+      return this.prefix + $filter('currency')(this.amount, '', 2);
     }
 
   }
 
-  return new ProductsStateController();
+  return Price;
 
 }

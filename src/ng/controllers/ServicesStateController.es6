@@ -22,7 +22,7 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog,   $queryCac
   const SERVICES = $queryCache.entity('eviratec/services.json');
 
   SERVICES.download().then((query, res) => {
-    console.log(query, res);
+    console.log('eviratec/services.json fetched');
   });
 
   class ServicesStateController {

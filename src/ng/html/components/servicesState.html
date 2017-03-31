@@ -57,7 +57,7 @@
                     <li style="border-bottom: 1px solid rgba(0,0,0,0.12);"
                       ng-repeat="$itm in $group.members">
                     
-                      <a href="{{ $services.itmHref($itm.code) }}"
+                      <a href="/contact/{{ $itm.code }}"
                         class="md-button {{ $services.itmClass($itm.code) }}"
                         style="text-align:left;margin:0;border-radius:0;display:block;padding:4px 16px;">
                         <md-icon class="material-icons"
