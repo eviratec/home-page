@@ -75,14 +75,14 @@
             layout="row">
             <div>
               <p class="md-display-1" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,0.7);">
-                Test driven, web development
+                Awesome software, built just for you.
               </p>
             </div>
             <div class="flex"></div>
             <div>
-              <a href="/contact" class="md-button md-raised md-primary">
-                <md-icon class="material-icons">call</md-icon>
-                Get a quote
+              <a href="/contact" class="md-button md-raised md-accent">
+                <md-icon class="material-icons">mail</md-icon>
+                &nbsp;Contact us
               </a>
             </div>
           </div>
@@ -112,117 +112,22 @@
 
           <div flex>
             <div layout="column"
-              style="margin:16px;padding:16px;background:#fff;border-top: 5px solid #FF9100;"
+              style="margin:16px;background:#fff;border-top: 5px solid rgb(2,136,209);"
               md-whiteframe="2">
-              <div>
-                <p>Email newsletter</p>
-                <p>To stay informed about new products, services, and promotions.</p>
+
+              <div style="padding:16px;background-color:#f5f5f5;border-bottom:1px solid rgba(0,0,0,0.12);">
+                <p style="margin: 0;font-size: 2em;color: rgb(2,136,209);font-family: 'Signika Negative',Roboto,sans-serif;font-weight: 600;">Join our mailing list</p>
+                <p style="font-family: 'Signika Negative',Roboto,sans-serif;margin-bottom:0;">To stay informed about new products, services, and promotions.</p>
               </div>
-              <div>
-                <div class=""
-                  layout="row"
-                  layout-xs="column">
-
-                  <div flex>
-
-                    <div layout="row" layout-xs="column">
-
-                      <md-input-container flex="20"
-                        flex-xs="100">
-
-                        <label>Title</label>
-
-                        <md-select name="namePrefix"
-                          ng-model="$form.data.namePrefix"
-                          ng-disabled="true === $form.isLocked"
-                          tab-index="1"
-                          required>
-                          <md-option value="Mr">Mr.</md-option>
-                          <md-option value="Mrs">Mrs.</md-option>
-                          <md-option value="Ms">Ms.</md-option>
-                          <md-option value="Miss">Miss</md-option>
-                        </md-select>
-
-                        <div ng-messages="contact.namePrefix.$error">
-                          <div ng-message="required">Your name prefix is required</div>
-                        </div>
-
-                      </md-input-container>
-
-                      <md-input-container flex="30"
-                        flex-xs="100">
-
-                        <label>Given name</label>
-
-                        <input name="givenName"
-                          ng-model="$form.data.givenName"
-                          ng-disabled="$form.isLocked"
-                          ng-focus="true"
-                          tab-index="2"
-                          required>
-
-                        <div ng-messages="contact.givenName.$error">
-                          <div ng-message="required">Your given name is required</div>
-                        </div>
-
-                      </md-input-container>
-
-                      <md-input-container flex="30"
-                        flex-xs="100">
-
-                        <label>Family name</label>
-
-                        <input name="familyName"
-                          ng-model="$form.data.familyName"
-                          ng-disabled="$form.isLocked"
-                          ng-focus="true"
-                          tab-index="3"
-                          required>
-
-                        <div ng-messages="contact.familyName.$error">
-                          <div ng-message="required">Your family name is required</div>
-                        </div>
-
-                      </md-input-container>
-              
-                      <md-input-container flex="30"
-                        flex-xs="100">
-
-                        <label>Email address</label>
-
-                        <input name="contactEmail"
-                          type="email"
-                          minlength="10" 
-                          maxlength="100" 
-                          ng-pattern="/^.+@.+\..+$/"
-                          ng-model="$form.data.contactEmail"
-                          tab-index="6"
-                          ng-disabled="$form.isLocked"
-                          required>
-
-                        <div ng-messages="contact.contactEmail.$error">
-                          <div ng-message="required">Email address is required</div>
-                          <div ng-message="pattern">Invalid or incomplete address</div>
-                        </div>
-
-                      </md-input-container>
-                      
-                    </div>
-                  
-                  </div>
-
-                  <div flex="10">
-                    <md-button>
-                      Subscribe
-                    </md-button>
-                  </div>
-
-                </div>
+              <div style="padding:16px 16px 0;">
+                <div newsletter-optin-form></div>
               </div>
+
             </div>
           </div>
 
-          <div flex>
+          <div style="display: none;"
+            flex>
             <div class=""
               style="margin:16px;"
               md-whiteframe="2">

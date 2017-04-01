@@ -39,6 +39,7 @@ section#services div.service-hero .md-button.md-primary.md-fab {
 }
 
 section#services md-card.service-group {
+  border-top: 3px solid #BF360C;
   box-sizing: border-box;
   margin: 8px;
 }
@@ -47,6 +48,7 @@ section#services md-card.service-group div.card-header {
   color: #fff;
   padding: 24px;
   border-radius: 2px 2px 0 0;
+  background-color: rgba(0,0,0,0.12);
 }
 
 section#services md-card.service-group div.card-header p {
