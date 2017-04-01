@@ -9,7 +9,7 @@
 
   <div flex></div>
 
-  <div style="width:960px;z-index:10;"
+  <div style="width:960px;z-index:10;padding:48px 0;"
     layout-align="center center"
     layout>
 
@@ -23,28 +23,49 @@
         </p>
       </div>
 
-      <!-- Vertical Site Menu -->
+      <!-- Horizontal Site (pretty) Menu -->
       <div layout
         layout-align="center center">
-        <div layout="column"
-          style="width:70%;">
-        
+        <div layout="row"
+          layout-wrap
+          style="width:80%;">
+          
           <a href="{{ $itm.href }}"
             class="md-button md-raised {{ $itm.class }}"
+            flex
+            ng-if="$index !== 2"
             ng-repeat="$itm in $index.menuItems">
-            <md-icon class="material-icons"
-              style="margin-right:8px;"
-              ng-bind="$itm.icon">
-            </md-icon>
-            <span ng-bind="$itm.label"></span>
+            <div layout="column"
+              layout-align="center center">
+              <md-icon class="material-icons"
+                style="font-size:36px;height:36px;width:36px;margin-top:8px;"
+                ng-bind="$itm.icon">
+              </md-icon>
+              <span ng-bind="$itm.label"></span>
+            </div>
+          </a>
+          
+          <a href="{{ $itm.href }}"
+            class="md-button md-raised {{ $itm.class }}"
+            flex="100"
+            ng-if="$index === 2"
+            ng-repeat="$itm in $index.menuItems">
+            <div layout="column"
+              layout-align="center center">
+              <md-icon class="material-icons"
+                style="font-size:36px;height:36px;width:36px;margin-top:8px;"
+                ng-bind="$itm.icon">
+              </md-icon>
+              <span ng-bind="$itm.label"></span>
+            </div>
           </a>
 
         </div>
       </div>
-      <!-- Vertical Site Menu -->
+      <!-- Horizontal Site (pretty) Menu -->
 
       <!-- Horizontal Social Media Menu -->
-      <div style="margin:32px 0;">
+      <div class="h-social-menu">
         <div layout="row"
           layout-align="center center"
           style="color:rgba(255,255,255,0.7);">

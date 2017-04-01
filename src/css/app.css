@@ -186,6 +186,10 @@ index-state .social-ctas .social-cta a span.socicon {
   font-size: 24px;
   margin: 8px;
 }
+index-state div.h-social-menu {
+  margin: 32px 0;
+  text-shadow: 0 2px 5px rgba(0,0,0,.26);
+}
 
 @keyframes rotate-hero {
   50% {
