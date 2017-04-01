@@ -16,8 +16,8 @@
 
 app.controller('NewsletterOptinFormDirectiveController', NewsletterOptinFormDirectiveController);
 
-NewsletterOptinFormDirectiveController.$inject = ['$scope', '$animate', '$timeout', '$mdDialog', 'ContactMessage', 'messageSender', '$progressRegistry', 'CONTACT_FORM_PROGRESS'];
-function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeout,   $mdDialog,   ContactMessage,   messageSender,   $progressRegistry,   CONTACT_FORM_PROGRESS) {
+NewsletterOptinFormDirectiveController.$inject = ['$scope', '$animate', '$timeout', '$mdDialog', 'ContactMessage', '$progressRegistry', 'NEWSLETTER_FORM_PROGRESS'];
+function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeout,   $mdDialog,   ContactMessage,   $progressRegistry,   NEWSLETTER_FORM_PROGRESS) {
 
   const NEW = 'NEW';
   const SUBMITTED = 'SUBMITTED';

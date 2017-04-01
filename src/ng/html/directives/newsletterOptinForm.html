@@ -3,99 +3,91 @@
     layout="column">
 
     <form name="optinForm"
-      ng-submit="$form.submit($event)">
+      ng-submit="$newsletter.submit($event)">
 
       <div class=""
         layout="row"
         layout-xs="column">
 
-        <div>
+        <md-input-container flex="10"
+          flex-xs="100">
 
-          <div layout="row" layout-xs="column">
+          <label>Title</label>
 
-            <md-input-container flex="10"
-              flex-xs="100">
+          <md-select name="namePrefix"
+            ng-model="$newsletter.data.namePrefix"
+            ng-disabled="true === $newsletter.isLocked"
+            tab-index="1"
+            required>
+            <md-option value="Mr">Mr.</md-option>
+            <md-option value="Mrs">Mrs.</md-option>
+            <md-option value="Ms">Ms.</md-option>
+            <md-option value="Miss">Miss</md-option>
+          </md-select>
 
-              <label>Title</label>
-
-              <md-select name="namePrefix"
-                ng-model="$form.data.namePrefix"
-                ng-disabled="true === $form.isLocked"
-                tab-index="1"
-                required>
-                <md-option value="Mr">Mr.</md-option>
-                <md-option value="Mrs">Mrs.</md-option>
-                <md-option value="Ms">Ms.</md-option>
-                <md-option value="Miss">Miss</md-option>
-              </md-select>
-
-              <div ng-messages="optinForm.namePrefix.$error">
-                <div ng-message="required">Your name prefix is required</div>
-              </div>
-
-            </md-input-container>
-
-            <md-input-container flex="25"
-              flex-xs="100">
-
-              <label>Given name</label>
-
-              <input name="givenName"
-                ng-model="$form.data.givenName"
-                ng-disabled="$form.isLocked"
-                ng-focus="true"
-                tab-index="2"
-                required>
-
-              <div ng-messages="optinForm.givenName.$error">
-                <div ng-message="required">Your given name is required</div>
-              </div>
-
-            </md-input-container>
-
-            <md-input-container flex="25"
-              flex-xs="100">
-
-              <label>Family name</label>
-
-              <input name="familyName"
-                ng-model="$form.data.familyName"
-                ng-disabled="$form.isLocked"
-                ng-focus="true"
-                tab-index="3"
-                required>
-
-              <div ng-messages="optinForm.familyName.$error">
-                <div ng-message="required">Your family name is required</div>
-              </div>
-
-            </md-input-container>
-    
-            <md-input-container flex="40"
-              flex-xs="100">
-
-              <label>Email address</label>
-
-              <input name="contactEmail"
-                type="email"
-                minlength="10" 
-                maxlength="100" 
-                ng-pattern="/^.+@.+\..+$/"
-                ng-model="$form.data.contactEmail"
-                tab-index="6"
-                ng-disabled="$form.isLocked"
-                required>
-
-              <div ng-messages="optinForm.contactEmail.$error">
-                <div ng-message="required">Email address is required</div>
-                <div ng-message="pattern">Invalid or incomplete address</div>
-              </div>
-
-            </md-input-container>
-            
+          <div ng-messages="optinForm.namePrefix.$error">
+            <div ng-message="required">Your name prefix is required</div>
           </div>
-        
-        </div>
+
+        </md-input-container>
+
+        <md-input-container flex="25"
+          flex-xs="100">
+
+          <label>Given name</label>
+
+          <input name="givenName"
+            ng-model="$newsletter.data.givenName"
+            ng-disabled="$newsletter.isLocked"
+            ng-focus="true"
+            tab-index="2"
+            required>
+
+          <div ng-messages="optinForm.givenName.$error">
+            <div ng-message="required">Your given name is required</div>
+          </div>
+
+        </md-input-container>
+
+        <md-input-container flex="25"
+          flex-xs="100">
+
+          <label>Family name</label>
+
+          <input name="familyName"
+            ng-model="$newsletter.data.familyName"
+            ng-disabled="$newsletter.isLocked"
+            ng-focus="true"
+            tab-index="3"
+            required>
+
+          <div ng-messages="optinForm.familyName.$error">
+            <div ng-message="required">Your family name is required</div>
+          </div>
+
+        </md-input-container>
+
+        <md-input-container flex="40"
+          flex-xs="100">
+
+          <label>Email address</label>
+
+          <input name="contactEmail"
+            type="email"
+            minlength="10" 
+            maxlength="100" 
+            ng-pattern="/^.+@.+\..+$/"
+            ng-model="$newsletter.data.contactEmail"
+            tab-index="6"
+            ng-disabled="$newsletter.isLocked"
+            required>
+
+          <div ng-messages="optinForm.contactEmail.$error">
+            <div ng-message="required">Email address is required</div>
+            <div ng-message="pattern">Invalid or incomplete address</div>
+          </div>
+
+        </md-input-container>
 
       </div>
 
