@@ -14,10 +14,10 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.controller('NewsletterOptinFormDirectiveController', NewsletterOptinFormDirectiveController);
+app.controller('NewsletterFormDirectiveController', NewsletterFormDirectiveController);
 
-NewsletterOptinFormDirectiveController.$inject = ['$scope', '$animate', '$timeout', '$mdDialog', 'ContactMessage', '$progressRegistry', 'NEWSLETTER_FORM_PROGRESS'];
-function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeout,   $mdDialog,   ContactMessage,   $progressRegistry,   NEWSLETTER_FORM_PROGRESS) {
+NewsletterFormDirectiveController.$inject = ['$scope', '$animate', '$timeout', '$mdDialog', 'messageSender', 'NewsletterSubscription', '$progressRegistry', 'NEWSLETTER_FORM_PROGRESS'];
+function NewsletterFormDirectiveController (  $scope,   $animate,   $timeout,   $mdDialog,   messageSender,   NewsletterSubscription,   $progressRegistry,   NEWSLETTER_FORM_PROGRESS) {
 
   const NEW = 'NEW';
   const SUBMITTED = 'SUBMITTED';
@@ -25,14 +25,27 @@ function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeou
   const ERROR = 'ERROR';
   const DONE = 'DONE';
 
-  class NewsletterOptinFormDirectiveController {
+  class NewsletterFormDirectiveController {
 
     constructor () {
       
       this.state = NEW;
       this.data = {};
 
-      // this.progressTracker = $progressRegistry.tracker(CONTACT_FORM_PROGRESS);
+      this.progressElVisible = false;
+      this.progressTracker = $progressRegistry.tracker(NEWSLETTER_FORM_PROGRESS);
+
+      this.progressTracker.on('start', () => {
+        $timeout(() => {
+          this.showProgressEl();
+        });
+      });
+
+      this.progressTracker.on('stop', () => {
+        $timeout(() => {
+          this.hideProgressEl();
+        });
+      });
       
     }
 
@@ -67,7 +80,7 @@ function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeou
       let data;
       let message;
 
-      let invalidSubmission = false === $scope.contact.$valid;
+      let invalidSubmission = false === $scope.optinForm.$valid;
       let thisIsLocked = true === this.isLocked;
 
       if (thisIsLocked || invalidSubmission) {
@@ -79,7 +92,7 @@ function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeou
       this.showProgress();
 
       data = Object.assign({}, this.data);
-      message = newContactMessage(data);
+      message = newNewsletterSubscription(data);
 
       this.state = SENDING;
 
@@ -113,6 +126,14 @@ function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeou
       this.progressTracker.deactivate();
       return this;
     }
+    
+    showProgressEl () {
+      this.progressElVisible = true;
+    }
+
+    hideProgressEl () {
+      this.progressElVisible = false;
+    }
 
   }
 
@@ -131,16 +152,15 @@ function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeou
 
   }
 
-  function newContactMessage (d) {
+  function newNewsletterSubscription (d) {
     
-    let message = new ContactMessage();
+    let subscription = new NewsletterSubscription();
     
     d = d || {};
 
-    configureReplyTo(d, message);
-    configureMessage(d, message);
+    configureProps(d, subscription);
 
-    return message;
+    return subscription;
 
   }
 
@@ -148,10 +168,10 @@ function NewsletterOptinFormDirectiveController (  $scope,   $animate,   $timeou
     return `${d.namePrefix}. ${d.familyName}, ${d.givenName}`;
   }
 
-  function configureMessage (d, message) {
-    message.content = d.message;
+  function configureProps (d, subscription) {
+    subscription.content = d.subscription;
   }
 
-  return new NewsletterOptinFormDirectiveController();
+  return new NewsletterFormDirectiveController();
 
 }

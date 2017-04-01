@@ -14,23 +14,21 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.directive('newsletterOptinForm', newsletterOptinFormDirective);
+app.factory('NewsletterSubscription', NewsletterSubscriptionFactory);
 
-newsletterOptinFormDirective.$inject = [];
-function newsletterOptinFormDirective () {
+NewsletterSubscriptionFactory.$inject = ['Message', 'ContactPerson'];
+function NewsletterSubscriptionFactory (  Message,   ContactPerson) {
 
-  return {
-    restrict: 'A',
-    controller: 'NewsletterOptinFormDirectiveController as $newsletter',
-    templateUrl: 'html/directives/newsletterOptinForm.html',
-    link: {
-      pre: function preLink (scope, iElement, iAttrs, controller) {
-        iElement.addClass('email-marketing-optin-form email-marketing-optin-form-wrapper');
-      },
-      post: function postLink (scope, iElement, iAttrs, controller) {
+  class NewsletterSubscription extends Message {
 
-      },
-    },
-  };
+    constructor () {
+
+      super();
+
+    }
+
+  }
+
+  return NewsletterSubscription;
 
 }
