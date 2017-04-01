@@ -11,7 +11,9 @@
   <div class="service-hero"
     style="width: 100%;border-top:1px solid rgba(255,255,255,0.12);">
 
-    <div layout layout-align="center center">
+    <div style="background:linear-gradient(to top left,#4527A0 0%,#D81B60 100%);"
+      layout-align="center center"
+      layout>
 
       <div style="width:1010px;padding:24px;"
         layout="column"
@@ -39,7 +41,8 @@
                     </span>
                   </div>
 
-                  <h4 ng-bind="$group.label"></h4>
+                  <h4 class="md-display-1"
+                    ng-bind="$group.label"></h4>
 
                   <p class="md-caption"
                     ng-bind="$group.tag_line"></p>
@@ -49,14 +52,19 @@
                 <md-card-actions layout-align="end center"
                   layout="row">
 
-                  <span style="margin-left: 8px;font-family:'Ubuntu';color:rgba(255,255,255,0.5)">From $50 /hour</span>
+                  <span class="md-caption"
+                    style="margin-left: 8px;font-family:'Ubuntu';color: rgba(0,0,0,0.57);">
+                    From $50 /hour
+                  </span>
 
                   <span flex></span>
                   
-                  <md-button aria-label="View">
+                  <a href="/contact"
+                    md-button
+                    aria-label="View">
                     Details
                     <md-icon class="material-icons">chevron_right</md-icon>
-                  </md-button>
+                  </a>
                   
                 </md-card-actions>
 
