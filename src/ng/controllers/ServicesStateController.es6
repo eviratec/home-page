@@ -39,11 +39,11 @@ function ServicesStateController (  $scope,   $mdMedia,   $timeout,   $element, 
 
       this.groups = SERVICES;
 
-      console.log($element,$element[0].children[0].outerHeight);
-
       this.heroStyle = {
-        height: ($resizeListener.current.h - HEADER_HEIGHT)+'px',
+        height: 'auto',
       };
+
+      updateHeroHeight(this, $resizeListener.current.h);
 
       this.cardStylesByGroupCode = {
         WP: "position:relative;background-color:#0087be;background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);",
