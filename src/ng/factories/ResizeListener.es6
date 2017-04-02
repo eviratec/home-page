@@ -35,10 +35,6 @@ function ResizeListenerFactory (  EventEmitter) {
         w: 0,
       };
 
-      this.on('resize', (h, w) => {
-        console.log('resize ', h, w);
-      });
-
     }
 
     notify (h, w) {
