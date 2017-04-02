@@ -137,71 +137,29 @@
         <div style="width:1010px;padding:16px;"
           layout="column">
 
-          <div class="product-group">
-            <div layout="row"
-              layout-xs="column"
-              layout-align-xs="start stretch">
+          <div flex>
+            <div layout="column"
+              style="margin:16px;background:#fff;border-top: 5px solid rgb(2,136,209);"
+              md-whiteframe="2">
 
-              <div class="group-aside"
-                flex
-                flex-gt-xs="30">
-                <h3 class="md-display-1">
-                  SSL Certificates
-                </h3>
-                <p>
-                  <!-- Keep your information and customers safe with our range of SSL Certificates. -->
-                  Protect your web traffic, and increase shopper confidence, with our range of SSL Certificates.
-                </p>
+              <div style="padding:16px;background-color:#f5f5f5;border-bottom:1px solid rgba(0,0,0,0.12);">
+                <p style="margin: 0;font-size: 2em;color: rgb(2,136,209);font-family: 'Signika Negative',Roboto,sans-serif;font-weight: 600;">Join our mailing list</p>
+                <p style="font-family: 'Signika Negative',Roboto,sans-serif;margin-bottom:0;">To stay informed about new products, services, and promotions.</p>
               </div>
 
-              <div class="group-content"
-                flex>
-
-                <div class="product-list"
-                  ng-repeat="$vendor in $products.vendors"
-                  md-whiteframe="2">
-
-                  <div class="group-header"
-                    layout-align="start end"
-                    layout="row">
-                    <h4 ng-bind="$vendor.name"></h4>
-                    <span flex></span>
-                    <span class="md-caption">Per year</span>
-                  </div>
-
-                  <ul class="group-products">
-                    <li ng-repeat="$product in $products.catalogue.data.products | orderBy : 'prices[0].amount' | filter : { vendor_id: $vendor.id }"
-                      ng-if="$product.prices[0]"
-                      layout="row"
-                      layout-align="start center">
-
-                      <span>{{ $product.headline }}</span>
-
-                      <span ng-if="'ev' === $product.code.substr(0,2)"
-                        style="font-size: 0.75em;background-color: #64DD17;color: rgba(255,255,255,0.7);padding: 4px;margin: 0 8px;border-radius: 2px;line-height:1;">
-                        EV
-                      </span>
-                      <span ng-if="'ov' === $product.code.substr(0,2)"
-                        style="font-size: 0.75em;background-color: #0091EA;color: rgba(255,255,255,0.7);padding: 4px;margin: 0 8px;border-radius: 2px;line-height:1;">
-                        OV
-                      </span>
-
-                      <span flex></span>
-
-                      <span ng-bind="$products.listPrice($product).toString()"></span>
-
-                    </li>
-                  </ul>
-
-                </div>
-
-                <div class="md-caption" 
-                  style="text-align: right;margin: 16px 0;color: rgba(0,0,0,0.38);">
-                  All prices quoted in AUD excl. GST
-                </div>
-
+              <div style="padding:16px;">
+                <newsletter-form></newsletter-form>
               </div>
 
+            </div>
+          </div>
+
+          <div style="display: none;"
+            flex>
+            <div class=""
+              style="margin:16px;"
+              md-whiteframe="2">
+              Foo
             </div>
           </div>
 
@@ -210,11 +168,11 @@
         <div flex></div>
 
       </div>
-
-    </md-content>
   
-    <footer page-footer>
-    </footer>
+      <footer page-footer>
+      </footer>
+      
+    </md-content>
 
   </div>
 

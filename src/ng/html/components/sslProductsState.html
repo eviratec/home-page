@@ -1,0 +1,164 @@
+<section id="sslProducts"
+  class="state-section"
+  layout-align="start center"
+  layout="column"
+  layout-fill>
+  
+  <header ng-model="$sslProducts.header"
+    page-header>
+  </header>
+
+  <div class="ssl-products-hero"
+    style="width: 100%;border-top:1px solid rgba(255,255,255,0.12);">
+
+    <div style="background:linear-gradient(to bottom right,#03A9F4 0%,#01579B 100%);"
+      layout-align="center center"
+      layout-fill
+      layout>
+
+      <div style="width:1010px;padding:24px;"
+        layout="column"
+        layout-align="end stretch">
+        
+        <div>
+          <div style="margin-top: 24px;padding-top: 8px;"
+            layout-align="start end"
+            layout-xs="column"
+            layout="row">
+            <div>
+              <p class="md-display-3" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,1);">
+                SSL Certificates
+              </p>
+            </div>
+            <div class="flex"></div>
+          </div>
+        </div>
+        
+        <div>
+          <div style=""
+            layout-align="start end"
+            layout-xs="column"
+            layout="row">
+            <div>
+              <p class="md-display-1" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,0.7);">
+                Protect your web traffic
+              </p>
+            </div>
+            <div class="flex"></div>
+            <div style="margin-top:24px;">
+              <md-icon class="material-icons"
+                style="height:36px;line-height:36px;">
+                chevron_right
+              </md-icon>
+              <a href="/contact" class="md-button md-raised md-accent cta">
+                <md-icon class="material-icons">mail</md-icon>
+                &nbsp;Contact us
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    
+  </div>
+
+  <div style="width:100%;"
+    class="state-content-root"
+    md-theme="clearContent"
+    flex>
+
+    <md-content style="overflow-x:hidden;">
+
+      <div class="state-content"
+        layout-align="start center"
+        layout="row">
+
+        <div flex></div>
+
+        <div style="width:1010px;padding:16px;"
+          layout="column">
+
+          <div class="product-group">
+            <div layout="row"
+              layout-xs="column"
+              layout-align-xs="start stretch">
+
+              <div class="group-aside"
+                flex
+                flex-gt-xs="30">
+                <h3 class="md-display-1">
+                  SSL Certificates
+                </h3>
+                <p>
+                  <!-- Keep your information and customers safe with our range of SSL Certificates. -->
+                  Protect your web traffic, and increase shopper confidence, with our range of SSL Certificates.
+                </p>
+              </div>
+
+              <div class="group-content"
+                flex>
+
+                <div class="product-list"
+                  ng-repeat="$vendor in $sslProducts.vendors"
+                  md-whiteframe="2">
+
+                  <div class="group-header"
+                    layout-align="start end"
+                    layout="row">
+                    <h4 ng-bind="$vendor.name"></h4>
+                    <span flex></span>
+                    <span class="md-caption">Per year</span>
+                  </div>
+
+                  <ul class="group-products">
+                    <li ng-repeat="$product in $sslProducts.catalogue.data.products | orderBy : 'prices[0].amount' | filter : { vendor_id: $vendor.id }"
+                      ng-if="$product.prices[0]"
+                      layout="row"
+                      layout-align="start center">
+
+                      <span>{{ $product.headline }}</span>
+
+                      <span ng-if="'ev' === $product.code.substr(0,2)"
+                        style="font-size: 0.75em;background-color: #64DD17;color: rgba(255,255,255,0.7);padding: 4px;margin: 0 8px;border-radius: 2px;line-height:1;">
+                        EV
+                      </span>
+                      <span ng-if="'ov' === $product.code.substr(0,2)"
+                        style="font-size: 0.75em;background-color: #0091EA;color: rgba(255,255,255,0.7);padding: 4px;margin: 0 8px;border-radius: 2px;line-height:1;">
+                        OV
+                      </span>
+
+                      <span flex></span>
+
+                      <span ng-bind="$sslProducts.listPrice($product).toString()"></span>
+
+                    </li>
+                  </ul>
+
+                </div>
+
+                <div class="md-caption" 
+                  style="text-align: right;margin: 16px 0;color: rgba(0,0,0,0.38);">
+                  All prices quoted in AUD excl. GST
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div flex></div>
+
+      </div>
+
+    </md-content>
+  
+    <footer page-footer>
+    </footer>
+
+  </div>
+
+</section>
