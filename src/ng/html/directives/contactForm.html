@@ -118,7 +118,7 @@
     
       <md-input-container class="md-block">
 
-        <label>Message</label>
+        <label>Message / subject / call-back preferences (optional)</label>
 
         <textarea name="message"
           ng-model="$form.data.message"
@@ -127,12 +127,10 @@
           rows="3"
           max-rows="4"
           tab-index="7"
-          md-select-on-focus
-          required>
+          md-select-on-focus>
         </textarea>
 
         <div ng-messages="contact.message.$error">
-          <div ng-message="required">Message is required</div>
           <div ng-message="md-minlength">Message must be more than 5 characters</div>
           <div ng-message="md-maxlength">Message must be less than 30 characters</div>
         </div>
@@ -153,7 +151,7 @@
               check
             </md-icon>
             
-            <span>Message sent.</span>
+            <span>Request submitted.</span>
 
           </div>
 
@@ -162,7 +160,7 @@
             tab-index="8"
             ng-hide="$form.isDone"
             ng-disabled="$form.isLocked">
-            <span>Send message</span>
+            <span>Submit request</span>
           </md-button>
 
         </div>
