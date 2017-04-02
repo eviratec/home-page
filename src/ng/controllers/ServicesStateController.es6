@@ -16,8 +16,10 @@
 
 app.controller('ServicesStateController', ServicesStateController);
 
-ServicesStateController.$inject = ['$scope', '$animate', '$mdDialog', '$queryCache'];
-function ServicesStateController (  $scope,   $animate,   $mdDialog,   $queryCache) {
+ServicesStateController.$inject = ['$scope', '$mdMedia', '$timeout', '$element', '$animate', '$mdDialog', '$queryCache', '$resizeListener'];
+function ServicesStateController (  $scope,   $mdMedia,   $timeout,   $element,   $animate,   $mdDialog,   $queryCache,   $resizeListener) {
+
+  const HEADER_HEIGHT = 110;
 
   const SERVICES = $queryCache.entity('eviratec/services-extended.json');
 
@@ -29,11 +31,20 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog,   $queryCac
 
     constructor () {
 
+      let servicesStateController = this;
+
       this.header = {
         headline: 'Services & Service Rates',
       };
 
       this.groups = SERVICES;
+
+      console.log($element,$element[0].children[0].outerHeight);
+
+      this.heroStyle = {
+        minHeight: ($resizeListener.current.h - HEADER_HEIGHT)+'px',
+        height: ($resizeListener.current.h - HEADER_HEIGHT)+'px',
+      };
 
       this.cardStylesByGroupCode = {
         WP: "position:relative;background-color:#0087be;background:linear-gradient(to bottom right,#0087be 0,#01579B 100%);",
@@ -53,6 +64,18 @@ function ServicesStateController (  $scope,   $animate,   $mdDialog,   $queryCac
         API_SDK_DESIGN: 'storage',
         DATA_STACK_SECURITY: 'security',
       };
+
+      $resizeListener.on('resize', (h) => {
+        $timeout(updateHeroHeight, 0, true, this, h);
+      });
+
+      function updateHeroHeight (ctrl, h) {
+        if ($mdMedia('xs')) {
+          ctrl.heroStyle.height = 'auto';
+          return;
+        }
+        ctrl.heroStyle.height = (h - HEADER_HEIGHT)+'px';
+      }
 
     }
 
