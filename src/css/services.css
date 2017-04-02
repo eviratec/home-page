@@ -31,11 +31,16 @@ section#services div.service-hero {
 
 }
 
-section#services div.service-hero .md-button.md-default-theme.md-primary.md-raised,
-section#services div.service-hero .md-button.md-primary.md-raised,
-section#services div.service-hero .md-button.md-default-theme.md-primary.md-fab,
-section#services div.service-hero .md-button.md-primary.md-fab {
-  background-color: #FF9100;
+section#services div.service-hero .md-button.md-raised.md-accent.cta {
+  background-color: #FFC400;
+}
+section#services div.service-hero .md-button.md-raised.md-accent.cta:hover {
+  background-color: #FFAB00;
+}
+
+section#services div.service-hero .md-button.md-raised.md-accent.cta,
+section#services div.service-hero .md-button.md-raised.md-accent.cta md-icon {
+  color: rgba(0,0,0,0.87);
 }
 
 section#services md-card.service-group {

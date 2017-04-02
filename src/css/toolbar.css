@@ -17,7 +17,7 @@
 /** Toolbar styling **/
 
 #toolbar {
-
+  z-index: 11;
 }
 
 #toolbar .md-toolbar-tools {
