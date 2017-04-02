@@ -16,8 +16,10 @@
 
 app.controller('ProductsStateController', ProductsStateController);
 
-ProductsStateController.$inject = ['$queryCache', 'Price'];
-function ProductsStateController (  $queryCache,   Price) {
+ProductsStateController.$inject = ['$queryCache', '$timeout', '$resizeListener', '$mdMedia', 'Price'];
+function ProductsStateController (  $queryCache,   $timeout,   $resizeListener,   $mdMedia,   Price) {
+
+  const HEADER_HEIGHT = 110;
 
   const PRODUCTS = $queryCache.entity('eviratec/products.json');
 
@@ -30,8 +32,36 @@ function ProductsStateController (  $queryCache,   Price) {
     constructor () {
 
       this.header = {
-        headline: 'Products & Product Pricing',
+        headline: 'Products',
       };
+
+      this.catalogue = PRODUCTS;
+
+      this.heroStyle = {
+        height: 'auto',
+      };
+
+      updateHeroHeight(this, $resizeListener.current.h);
+
+      this.productCategories = [{
+        id: '',
+        slug: 'ssl-certificates',
+        label: 'SSL Certificates',
+        tag_line: 'Protect your web traffic',
+        caption: 'From $39',
+      }, {
+        id: '',
+        slug: 'wp-themes',
+        label: 'WP Themes',
+        tag_line: 'Themes for WordPress',
+        caption: '',
+      }, {
+        id: '',
+        slug: 'wp-plugins',
+        label: 'WP Plugins',
+        tag_line: 'Plugins for WordPress',
+        caption: '',
+      }];
 
       this.vendors = [{
         id: '356b4ec8-a556-4ea8-8b88-2801de4deba1',
@@ -50,12 +80,29 @@ function ProductsStateController (  $queryCache,   Price) {
         name: 'RapidSSL',
       }]
 
-      this.catalogue = PRODUCTS;
+      $resizeListener.on('resize', (h) => {
+        $timeout(updateHeroHeight, 0, true, this, h);
+      });
+
+      function updateHeroHeight (ctrl, h) {
+
+        if ($mdMedia('gt-sm') && h > 640) {
+          ctrl.heroStyle.height = (h - HEADER_HEIGHT)+'px';
+          return;
+        }
+
+        ctrl.heroStyle.height = 'auto';
+
+      }
 
     }
 
     listPrice ($product) {
       return new Price($product.prices[0]);
+    }
+
+    isWpProductCategory ($category) {
+      return 'wp-' === $category.slug.substr(0,3);
     }
 
   }

@@ -8,6 +8,78 @@
     page-header>
   </header>
 
+  <div class="contact-hero"
+    style="width: 100%;border-top:1px solid rgba(255,255,255,0.12);"
+    ng-style="$contact.heroStyle">
+
+    <div style="background:linear-gradient(to bottom right,#03A9F4 0%,#01579B 100%);"
+      layout-align="center center"
+      layout-fill
+      layout>
+
+      <div style="width:1010px;padding:24px;"
+        layout="column"
+        layout-align="end stretch">
+        
+        <div>
+          <div style="margin-top: 24px;padding-top: 8px;"
+            layout-align="start end"
+            layout-xs="column"
+            layout="row">
+            <div>
+              <p class="md-display-3" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,1);">
+                Contact us
+              </p>
+            </div>
+            <div class="flex"></div>
+          </div>
+        </div>
+        
+        <div>
+          <div style=""
+            layout-align="start end"
+            layout-xs="column"
+            layout="row">
+            <div>
+              <p class="md-display-1" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,0.7);">
+                By phone, email, or social media
+              </p>
+            </div>
+            <div class="flex"></div>
+            <div style="margin-top:24px;"
+              layout="row">
+              <md-icon class="material-icons"
+                style="height:36px;line-height:36px;">
+                chevron_right
+              </md-icon>
+              <ul class="content-link-list"
+                layout="row">
+                <li ng-repeat="$link in $contact.socialLinks"
+                  flex>
+                  <a href="{{ $link.href }}" 
+                    class="md-button md-icon-button md-raised"
+                    target="_blank">
+                    <md-tooltip md-direction="top">
+                      {{ $link.tooltip }}
+                    </md-tooltip>
+                    <div>
+                      <span style="font-size: 24px;"
+                        class="socicon socicon-{{ $link.icon }}">
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    
+  </div>
+
   <div style="width:100%;"
     class="state-content-root"
     md-theme="clearContent"
@@ -73,41 +145,14 @@
               </md-card>
 
               <div class="section-content-secondary md-whiteframe-1dp">
-
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14980413.604670588!2d136.7294759301566!3d-23.556677032320838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad63c9ced72e043%3A0xda232c7a25c27e66!2sEVIRATEC!5e0!3m2!1sen!2sau!4v1490443271119" width="100%" height="200" frameborder="0" style="border:0;display:block;" allowfullscreen></iframe>
-
-              </div>
-
-              <div class="section-content-secondary">
-
-                <ul class="content-link-list"
-                  layout="row">
-                  <li ng-repeat="$link in $contact.socialLinks"
-                    flex>
-                    <a href="{{ $link.href }}" 
-                      class="md-button md-icon-button md-raised"
-                      style="line-height: 50px;height: 60px;width: 60px;"
-                      target="_blank">
-                      <md-tooltip md-direction="top">
-                        {{ $link.tooltip }}
-                      </md-tooltip>
-                      <div>
-                        <span style="font-size: 24px;"
-                          class="socicon socicon-{{ $link.icon }}">
-                        </span>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-
               </div>
 
             </div>
 
           </div>
 
-          <div flex-order-xs="-1"
-            flex>
+          <div flex>
             <div layout="column"
               style="margin:16px;background:#fff;border-top: 5px solid rgb(2,136,209);"
               md-whiteframe="1">

@@ -16,12 +16,16 @@
 
 app.controller('ContactStateController', ContactStateController);
 
-ContactStateController.$inject = ['$scope', '$animate', '$timeout', '$progressRegistry', 'CONTACT_FORM_PROGRESS', '$dbx'];
-function ContactStateController (  $scope,   $animate,   $timeout,   $progressRegistry,   CONTACT_FORM_PROGRESS,   $dbx) {
+ContactStateController.$inject = ['$scope', '$animate', '$timeout', '$resizeListener', '$mdMedia', '$progressRegistry', 'CONTACT_FORM_PROGRESS', '$dbx'];
+function ContactStateController (  $scope,   $animate,   $timeout,   $resizeListener,   $mdMedia,   $progressRegistry,   CONTACT_FORM_PROGRESS,   $dbx) {
+
+  const HEADER_HEIGHT = 110;
 
   class ContactStateController {
 
     constructor () {
+
+      let contactFormProgress;
 
       this.progressElVisible = false;
 
@@ -31,7 +35,11 @@ function ContactStateController (  $scope,   $animate,   $timeout,   $progressRe
         headline: 'Contact us',
       };
 
-      let contactFormProgress = $progressRegistry.tracker(CONTACT_FORM_PROGRESS);
+      this.heroStyle = {
+        height: 'auto',
+      };
+
+      contactFormProgress = $progressRegistry.tracker(CONTACT_FORM_PROGRESS);
 
       contactFormProgress.on('start', () => {
         $timeout(() => {

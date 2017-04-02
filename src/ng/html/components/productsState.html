@@ -7,6 +7,120 @@
     page-header>
   </header>
 
+  <div class="product-hero"
+    style="width: 100%;border-top:1px solid rgba(255,255,255,0.12);"
+    ng-style="$products.heroStyle">
+
+    <div style="background:linear-gradient(to top left,#4A148C 0%,#5E35B1 100%);"
+      layout-align="center center"
+      layout-fill
+      layout>
+
+      <div style="width:1010px;padding:24px;"
+        layout="column"
+        layout-align="end stretch">
+        
+        <div>
+          <div style="margin-top: 24px;padding-top: 8px;"
+            layout-align="start end"
+            layout-xs="column"
+            layout="row">
+            <div>
+              <p class="md-display-2" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,1);">
+                We can sort you out with
+              </p>
+            </div>
+            <div class="flex"></div>
+          </div>
+        </div>
+        
+        <div flex="">
+
+          <div layout-xs="column"
+            layout="row"
+            layout-wrap>
+
+            <div flex-gt-xs="33"
+              ng-repeat="$category in $products.productCategories"
+              flex-xs>
+
+              <md-card class="product-category">
+
+                <div class="card-header"
+                  style="overflow:hidden;position:relative;">
+                  
+                  <div ng-if="$products.isWpProductCategory($category)"
+                    style="position:absolute;bottom:-24px;right:-12px;">
+                    <span style="font-size:86px;opacity:0.2;"
+                      class="socicon socicon-wordpress">
+                    </span>
+                  </div>
+
+                  <h4 class="md-display-1"
+                    ng-bind="$category.label"></h4>
+
+                  <p class="md-caption"
+                    ng-bind="$category.tag_line"></p>
+
+                </div>
+                
+                <md-card-actions layout-align="end center"
+                  layout="row">
+
+                  <span class="md-caption"
+                    ng-bind="$category.caption"
+                    style="margin-left: 8px;font-family:'Ubuntu';color: rgba(0,0,0,0.57);">
+                  </span>
+
+                  <span flex></span>
+                  
+                  <a href="/products/{{ $category.slug }}"
+                    md-button
+                    aria-label="View">
+                    View range
+                    <md-icon class="material-icons">chevron_right</md-icon>
+                  </a>
+                  
+                </md-card-actions>
+
+              </md-card>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+        <div>
+          <div style="margin-top: 24px;padding-top: 8px;"
+            layout-align="start end"
+            layout-xs="column"
+            layout="row">
+            <div>
+              <p class="md-display-1" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,0.7);">
+                Plus everything else...
+              </p>
+            </div>
+            <div class="flex"></div>
+            <div style="margin-top:24px;">
+              <md-icon class="material-icons"
+                style="height:36px;line-height:36px;">
+                chevron_right
+              </md-icon>
+              <a href="/services" class="md-button md-raised md-accent cta">
+                <md-icon class="material-icons">whatshot</md-icon>
+                &nbsp;View services
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    
+  </div>
+
   <div style="width:100%;"
     class="state-content-root"
     md-theme="clearContent"

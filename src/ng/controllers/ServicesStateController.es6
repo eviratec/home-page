@@ -34,7 +34,7 @@ function ServicesStateController (  $scope,   $mdMedia,   $timeout,   $element, 
       let servicesStateController = this;
 
       this.header = {
-        headline: 'Services & Service Rates',
+        headline: 'Services',
       };
 
       this.groups = SERVICES;
