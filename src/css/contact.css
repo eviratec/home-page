@@ -17,7 +17,8 @@
 section#contact md-card.contact-detail {
   box-sizing: border-box;
   margin: 0 0 32px;
-  background-color: rgb(2,136,209);
+  background-color: #0288d1;
+  background: linear-gradient(to bottom right, #0288d1 0%, #1565C0 100%);
   color: rgba(255,255,255,1);
 }
 
