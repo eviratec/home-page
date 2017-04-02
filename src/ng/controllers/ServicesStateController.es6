@@ -70,7 +70,7 @@ function ServicesStateController (  $scope,   $mdMedia,   $timeout,   $element, 
 
       function updateHeroHeight (ctrl, h) {
 
-        if ($mdMedia('gt-sm')) {
+        if ($mdMedia('gt-sm') && h > 640) {
           ctrl.heroStyle.height = (h - HEADER_HEIGHT)+'px';
           return;
         }
