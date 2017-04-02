@@ -42,7 +42,6 @@ function ServicesStateController (  $scope,   $mdMedia,   $timeout,   $element, 
       console.log($element,$element[0].children[0].outerHeight);
 
       this.heroStyle = {
-        minHeight: ($resizeListener.current.h - HEADER_HEIGHT)+'px',
         height: ($resizeListener.current.h - HEADER_HEIGHT)+'px',
       };
 
@@ -70,11 +69,14 @@ function ServicesStateController (  $scope,   $mdMedia,   $timeout,   $element, 
       });
 
       function updateHeroHeight (ctrl, h) {
-        if ($mdMedia('xs')) {
-          ctrl.heroStyle.height = 'auto';
+
+        if ($mdMedia('gt-sm')) {
+          ctrl.heroStyle.height = (h - HEADER_HEIGHT)+'px';
           return;
         }
-        ctrl.heroStyle.height = (h - HEADER_HEIGHT)+'px';
+
+        ctrl.heroStyle.height = 'auto';
+
       }
 
     }
