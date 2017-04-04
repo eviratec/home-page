@@ -44,7 +44,6 @@ function appEnv (  $appEnvironmentProvider) {
 
   .addEnvironment('localdev', ['127.0.0.1', 'localhost', '10.0.0.92', /\.local$/i], {
     appTitle: '127/ Eviratec Software :: Eviratec.local',
-    assetUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/landing-page.eviratec.software/www/',
     contactEmail: 'info@eviratec.localhost',
     msgIdPrefix: 'dev/local/callan.milne/',
   })

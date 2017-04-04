@@ -16,8 +16,8 @@
 
 app.controller('WebAppRootViewController', webAppRootViewController);
 
-webAppRootViewController.$inject = ['$scope', '$timeout', '$mdSidenav', '$animate', '$appEnvironment', '$window', '$dbx', '$analytics'];
-function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animate,   $appEnvironment,   $window,   $dbx,   $analytics) {
+webAppRootViewController.$inject = ['$scope', '$timeout', '$assetUri', '$mdSidenav', '$animate', '$appEnvironment', '$window', '$dbx', '$analytics'];
+function webAppRootViewController (  $scope,   $timeout,   $assetUri,   $mdSidenav,   $animate,   $appEnvironment,   $window,   $dbx,   $analytics) {
 
   class WebAppRootViewController {
 
@@ -34,6 +34,8 @@ function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animat
       this.copyright = $appEnvironment.config.copyright;
       this.menuItems = $dbx.links.nav.global;
 
+      this.logoAssetUri = $assetUri('images/logov7c-dist.png');
+
       function buildToggler (navID) {
         return function() {
           // Component lookup should always be available since we are not using `ng-if`
@@ -46,8 +48,36 @@ function webAppRootViewController (  $scope,   $timeout,   $mdSidenav,   $animat
       }
 
       $scope.$on('$stateChangeSuccess', () => {
+        scrollTop();
         $analytics.trackPageView();
       });
+
+      function scrollTop () {
+
+        try {
+
+          let mdContentElem;
+          let stateElem;
+
+          mdContentElem = document.getElementsByClassName('state-section')[0];
+          if (!mdContentElem) {
+            return;
+          }
+
+          stateElem = mdContentElem.parentElement.parentElement.parentElement;
+          if (!stateElem) {
+            return;
+          }
+
+          stateElem.scrollTop = 0;
+
+        }
+        catch (err) {
+          console.log('stateElem.scrollTop unsupported');
+          console.log(err.stack);
+        }
+
+      }
 
     }
 
