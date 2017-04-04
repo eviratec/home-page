@@ -31,6 +31,7 @@ function appEnv (  $appEnvironmentProvider) {
     queryCacheUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/pub.cache.eviratec.software/queries/',
     msgSendVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
     msgRecieveVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
+    assetUriPrefix: '/',
     msgIdPrefix: 'dev/local/default/',
     copyright: 'Copyright © 2016 Callan Peter Milne.',
     analyticsEnabled: false,
@@ -43,38 +44,30 @@ function appEnv (  $appEnvironmentProvider) {
 
   .addEnvironment('localdev', ['127.0.0.1', 'localhost', '10.0.0.92', /\.local$/i], {
     appTitle: '127/ Eviratec Software :: Eviratec.local',
+    assetUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/landing-page.eviratec.software/www/',
     contactEmail: 'info@eviratec.localhost',
     msgIdPrefix: 'dev/local/callan.milne/',
   })
   
   /**
-   * Production (www.eviratec.co) environment
+   * Staging (preview.eviratec.com.au) environment
    */
 
-  .addEnvironment('production-co', /^(|www\.)eviratec\.co$/, {
-    appTitle: 'Eviratec Software :: Eviratec.co',
-    contactEmail: 'info@eviratec.co',
-    msgIdPrefix: 'prod/www.eviratec.co/',
-  })
-  
-  /**
-   * Production (www.eviratec.com) environment
-   */
-
-  .addEnvironment('production-com', /^(|www\.)eviratec\.com$/, {
-    appTitle: 'Eviratec Software :: Eviratec.com',
-    contactEmail: 'info@eviratec.co',
-    msgIdPrefix: 'prod/www.eviratec.com/',
+  .addEnvironment('staging-com-au', /^(|preview\.)eviratec\.com.au$/, {
+    appTitle: 'S/ Eviratec Software :: Eviratec.com.au',
+    contactEmail: 'info@eviratec.com.au',
+    msgIdPrefix: 'dev/staging/www.eviratec.com.au/',
   })
   
   /**
    * Production (www.eviratec.com.au) environment
    */
 
-  .addEnvironment('production-com-au', [/^(|www\.)eviratec\.com\.au$/, 'au-com-eviratec-www.s3-ap-southeast-2.amazonaws.com'], {
+  .addEnvironment('production-com-au', /^(|www\.)eviratec\.com\.au$/, {
     appTitle: 'Eviratec Software :: Eviratec.com.au',
     contactEmail: 'info@eviratec.com.au',
     msgIdPrefix: 'prod/www.eviratec.com.au/',
+    assetUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/landing-page.eviratec.software/www/',
     analyticsEnabled: true,
     analyticsTrackingCode: 'UA-96534995-1',
   })

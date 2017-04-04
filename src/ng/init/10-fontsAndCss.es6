@@ -16,11 +16,11 @@
 
 app.run(initStyleSheets);
 
-function initStyleSheets () {
+initStyleSheets.$inject = ['$assetUri'];
+function initStyleSheets (  $assetUri) {
 
   let styleSheets = [
-    'ewa.min.css',
-    // 'vendor.css',
+    $assetUri('ewa.min.css'),
     'https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css',
     'https://fonts.googleapis.com/css?family=Signika+Negative:300,400,600|Ubuntu',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
