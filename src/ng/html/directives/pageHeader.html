@@ -18,6 +18,21 @@
 
     <div flex></div>
 
+    <div>
+      <div ng-if="$pageHeader.sso.isLoggedIn">
+        Logged in as {{ $pageHeader.sso.userFullName }}
+        <md-button ng-click="$pageHeader.logout($ev)">
+          Logout
+        </md-button>
+      </div>
+      <div ng-if="!$pageHeader.sso.isLoggedIn">
+        Not logged in
+        <md-button ng-click="$pageHeader.login($ev)">
+          Login
+        </md-button>
+      </div>
+    </div>
+
   </div>
 
   <div flex></div>

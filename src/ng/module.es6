@@ -2,6 +2,7 @@ const moduleName = 'EviratecWebApp';
 const moduleDeps = [
   'ngAria',
   'ngAnimate',
+  'ngCookies',
   'ngMaterial',
   'ngMessages',
   'ui.router',

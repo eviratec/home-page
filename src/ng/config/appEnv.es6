@@ -31,6 +31,7 @@ function appEnv (  $appEnvironmentProvider) {
     queryCacheUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/pub.cache.eviratec.software/queries/',
     msgSendVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
     msgRecieveVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
+    ssoHost: 'http://sso.eviratec.software.localhost:3000',
     assetUriPrefix: '/',
     msgIdPrefix: 'dev/local/default/',
     copyright: 'Copyright © 2016 Callan Peter Milne.',

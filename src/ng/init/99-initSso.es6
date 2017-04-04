@@ -14,34 +14,11 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.controller('PageHeaderDirectiveController', PageHeaderDirectiveController);
+app.run(initSso);
 
-PageHeaderDirectiveController.$inject = ['$scope', '$sso'];
-function PageHeaderDirectiveController (  $scope,   $sso) {
+initSso.$inject = ['$sso'];
+function initSso (  $sso) {
 
-  class PageHeaderDirectiveController {
+  $sso.init();
 
-    constructor () {
-
-      let header = $scope.ngModel || {};
-
-      this.icon = header.icon || 'chevron_right';
-      this.headline = header.headline || 'New page';
-
-      this.sso = $sso;
-
-    }
-
-    login () {
-      this.sso.login();
-    }
-
-    logout () {
-      this.sso.logout();
-    }
-
-  }
-
-  return new PageHeaderDirectiveController();
-
-}
+};
