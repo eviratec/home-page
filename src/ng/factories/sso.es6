@@ -55,70 +55,71 @@ function ssoFactory (  $appEnvironment,   $http,   $session) {
     }
 
     init () {
-      fetchSsoId(this)
+      fetchSsoId(this.remoteHost, this.session.id)
         .then((d) => {
-          
           Object.assign(this.d, d);
-          console.log(this.d);
-
         });
+    }
+
+    refresh () {
+      return new Promise((resolve, reject) => {
+        fetchSsoId(this.remoteHost, this.session.id)
+          .then((d) => {
+            Object.assign(this.d, d);
+            resolve();
+          });
+      });
     }
 
     login () {
       
       if (this.isLoggedIn) {
-        return;
+        return false;
       }
 
       let dialogUrl = loginDialogUrl(this);
 
-      window.open(dialogUrl, SSO_DIALOG_ID, DIALOG_OPTS);
+      return window.open(dialogUrl, SSO_DIALOG_ID, DIALOG_OPTS);
 
     }
 
     logout () {
-      ssoLogout(this)
-        .then((d) => {
-          
-          delete this.d.session_id;
 
-          this.session.reset();
-          this.init();
+      try {
+        ssoLogout(this.remoteHost, this.session.id);
+      }
+      catch (err) {
+        // supress error
+      }
+      
+      this.session.reset();
 
-        });
+      return this.refresh();
+
     }
 
   }
 
   return new Sso(SSO_HOST);
 
-  function fetchSsoId (sso) {
-
-    let ssoHost = sso.remoteHost;
-    let session = sso.session.id;
-
+  function fetchSsoId (ssoHost, session_id) {
     return new Promise((resolve, reject) => {
-      $http.get(`${ssoHost}/sso/id?a=${session}`).then((res) => {
+      $http.get(`${ssoHost}/sso/id?a=${session_id}`).then((res) => {
         resolve(res.data);
       }, () => {
-        reject(...arguments);
+        reject();
       });
     });
   }
 
-  function ssoLogout (sso) {
-
-    let ssoHost = sso.remoteHost;
-    let session = sso.session.id;
-
+  function ssoLogout (ssoHost, session_id) {
     return new Promise((resolve, reject) => {
-      $http.post(`${ssoHost}/sso/logout?a=${session}`).then((res) => {
+      $http.post(`${ssoHost}/sso/logout?a=${session_id}`).then((res) => {
         resolve(res.data);
       }, () => {
-        resolve();
+        reject();
       });
     });
-
   }
 
   function loginDialogUrl (sso) {

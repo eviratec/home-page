@@ -33,11 +33,33 @@ function PageHeaderDirectiveController (  $scope,   $sso) {
     }
 
     login () {
-      this.sso.login();
+
+      window.addEventListener('focus', eventListener);
+
+      if (!$sso.login()) {
+        offWindowFocus()
+      }
+
+      function eventListener () {
+
+        $sso.refresh().then(() => {
+          $scope.$apply();
+        });
+
+        offWindowFocus();
+
+      }
+
+      function offWindowFocus () {
+        window.removeEventListener('focus', eventListener);
+      }
+
     }
 
     logout () {
-      this.sso.logout();
+      $sso.logout().then(() => {
+        $scope.$apply();
+      });
     }
 
   }

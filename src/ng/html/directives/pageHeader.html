@@ -18,9 +18,10 @@
 
     <div flex></div>
 
-    <div>
+    <div class="md-body-1">
       <div ng-if="$pageHeader.sso.isLoggedIn">
-        Logged in as {{ $pageHeader.sso.userFullName }}
+        Logged in as
+        <span>{{ $pageHeader.sso.userFullName }}</span>
         <md-button ng-click="$pageHeader.logout($ev)">
           Logout
         </md-button>
