@@ -23,6 +23,7 @@ function registerUnitTask (grunt) {
     'Build and test',
     [
       'build',
+      'karma:unit',
     ]
   );
 
