@@ -24,8 +24,9 @@
   background: #111;
 }
 
-#toolbar .md-toolbar-tools h2.md-body-1 {
+div.site-logo h2.md-body-1 {
   font-weight: 600;
+  font-size: 20px;
   font-family: 'Signika Negative',Roboto,sans-serif;
   margin-left: 16px;
   color: rgba(255,255,255,1);

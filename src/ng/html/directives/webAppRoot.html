@@ -2,23 +2,44 @@
   md-component-id="left"
   md-whiteframe="4">
 
-  <md-content layout-padding>
+  <md-content>
   
     <!-- Vertical Sidebar Site Menu -->
     <div class="main-menu">
 
       <div layout="column"
         layout-align="start stretch">
-      
-        <div>
-          <a href="/"
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.12);padding: 0 16px;background: rgba(24,24,24,1);">
+
+          <div layout="row">
+            <!-- Eviratec Logo -->
+            <div class="site-logo"
+              layout="row"
+              layout-align="center center">
+
+              <img src="{{ $webAppRoot.logoAssetUri }}"
+                style="height:36px;width:36px;"
+                title="Eviratec Logo" />
+
+              <h2 class="md-body-1"
+                style="text-transform: uppercase;">
+                Eviratec
+              </h2>
+
+            </div>
+            <!-- Eviratec Logo -->
+          </div>
+
+          <!-- <a href="/"
             ng-click="$webAppRoot.toggleSidenav()"
             class="md-button md-icon-button">
             <md-icon class="material-icons"
               style="margin-right:8px;">
               home
             </md-icon>
-          </a>
+          </a> -->
+
         </div>
       
         <a href="{{ $itm.href }}"
@@ -51,7 +72,8 @@
         layout="row">
 
         <!-- Eviratec Logo -->
-        <div layout="row"
+        <div class="site-logo"
+          layout="row"
           layout-align="center center">
 
           <img src="{{ $webAppRoot.logoAssetUri }}"
