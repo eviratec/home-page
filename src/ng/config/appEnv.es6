@@ -31,10 +31,11 @@ function appEnv (  $appEnvironmentProvider) {
     queryCacheUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/pub.cache.eviratec.software/queries/',
     msgSendVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
     msgRecieveVia: 'https://s3-ap-southeast-2.amazonaws.com/au-2.cmd.eviratec.software/',
-    ssoHost: 'http://login.eviratec.co',
     assetUriPrefix: '/',
     msgIdPrefix: 'dev/local/default/',
     copyright: 'Copyright © 2016 Callan Peter Milne.',
+    // ssoHost: 'http://0.0.0.0:3000',
+    ssoHost: 'https://login.eviratec.co',
     analyticsEnabled: false,
     analyticsTrackingCode: 'UA-XXXXXXXX-1',
   })
@@ -68,6 +69,7 @@ function appEnv (  $appEnvironmentProvider) {
     contactEmail: 'info@eviratec.com.au',
     msgIdPrefix: 'prod/www.eviratec.com.au/',
     assetUriPrefix: 'https://s3-ap-southeast-2.amazonaws.com/landing-page.eviratec.software/www/',
+    ssoHost: 'https://login.eviratec.co',
     analyticsEnabled: true,
     analyticsTrackingCode: 'UA-96534995-1',
   })
