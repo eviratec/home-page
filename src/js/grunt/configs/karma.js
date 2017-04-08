@@ -60,7 +60,6 @@ function initKarmaConfig ($config, grunt) {
       },
     },
     unit: {
-      singleRun: false,
       browsers: karmaChrome,
     },
     debug: {
