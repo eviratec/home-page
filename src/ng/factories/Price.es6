@@ -14,7 +14,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.factory('Price', PriceFactory);
+ app.factory('Price', PriceFactory);
 
 PriceFactory.$inject = ['$filter'];
 function PriceFactory (  $filter) {

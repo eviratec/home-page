@@ -26,8 +26,22 @@ function initKarmaConfig ($config, grunt) {
       configFile: false,
       singleRun: true,
       exclude: [],
+      preprocessors: {
+        'src/**/*.es6': ['babel'],
+      },
       files: [
-        'test/**/*-spec.js',
+        'node_modules/angular/angular.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'node_modules/angular-material/angular-material.js',
+        'node_modules/angular-aria/angular-aria.js',
+        'node_modules/angular-animate/angular-animate.js',
+        'node_modules/angular-messages/angular-messages.js',
+        'node_modules/angular-cookies/angular-cookies.js',
+        'node_modules/angular-ui-router/release/angular-ui-router.js',
+        'node_modules/angular-environment-config/release/angular-environment-config.js',
+        'src/ng/module.es6',
+        'src/ng/*/**/*.es6',
+        'test/unit/**/*-spec.js',
       ],
       frameworks: ['jasmine'],
       browsers: ['PhantomJS'],
@@ -35,11 +49,19 @@ function initKarmaConfig ($config, grunt) {
       port: 8080,
       colors: true,
       autoWatch: false,
+      debug: true,
       autoWatchatchInterval: 0,
       browsers: karmaHeadless,
     },
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015','polyfill'], // use the es2015 preset
+        sourceMap: 'inline' // inline source maps inside compiled files
+      },
+    },
     unit: {
-      browsers: karmaHeadless,
+      singleRun: false,
+      browsers: karmaChrome,
     },
     debug: {
       singleRun: false,

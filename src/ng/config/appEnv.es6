@@ -74,7 +74,7 @@ function appEnv (  $appEnvironmentProvider) {
     analyticsTrackingCode: 'UA-96534995-1',
   })
   
-  .defaultEnvironmentName('local');
+  .defaultEnvironmentName('localdev');
 
 }
 
