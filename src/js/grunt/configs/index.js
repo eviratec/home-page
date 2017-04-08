@@ -20,7 +20,7 @@ const thisFile = path.parse(__filename);
 
 module.exports = initGruntConfigs;
 
-function initGruntConfigs (target) {
+function initGruntConfigs (target, grunt) {
 
   let files = fs.readdirSync(__dirname);
   
@@ -36,7 +36,7 @@ function initGruntConfigs (target) {
       return;
     }
 
-    require(['.', file].join('/'))(target);
+    require(['.', file].join('/'))(target, grunt);
 
   });
 

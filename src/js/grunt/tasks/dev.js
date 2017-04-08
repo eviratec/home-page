@@ -25,7 +25,8 @@ function registerDevTask (grunt) {
       'clean:server',
       'build',
       'connect:livereload',
-      'watch:dev',
+      'karma:background',
+      'watch',
     ]
   );
 

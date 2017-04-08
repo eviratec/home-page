@@ -24,11 +24,11 @@ module.exports =
      *
      * @return     {Object}  Grunt config by task name
      */
-    static loadTaskConfigs () {
+    static loadTaskConfigs (grunt) {
       
       let tasksConfig;
       
-      _require('./src/js/grunt/configs')(tasksConfig = {});
+      _require('./src/js/grunt/configs')(tasksConfig = {}, grunt);
       
       return tasksConfig;
 
@@ -41,7 +41,7 @@ module.exports =
      */
     constructor (grunt) {
       
-      this.tasksConfig = EwaContinuousGrunt.loadTaskConfigs();
+      this.tasksConfig = EwaContinuousGrunt.loadTaskConfigs(grunt);
 
       init(this, grunt);
 
@@ -77,6 +77,7 @@ module.exports =
         buildTag: '-dev-' + grunt.template.today('yyyy-mm-dd'),
         buildDir: 'build',
 
+        testSpecDir: 'test',
         distDir: 'dist',
         srcDir: 'src',
         staticDir: '<%= srcDir %>/static',

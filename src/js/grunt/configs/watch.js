@@ -23,9 +23,11 @@ function initWatchConfig ($config) {
       files: [
         '<%= staticDir %>/**/*',
         '<%= srcDir %>/**/*',
+        '<%= testSpecDir %>/**/*',
       ],
       tasks: [
         'build',
+        'karma:background:run'
       ],
       options: {
         spawn: true,
