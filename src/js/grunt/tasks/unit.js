@@ -20,9 +20,8 @@ function registerUnitTask (grunt) {
 
   grunt.registerTask(
     'unit',
-    'Build and test',
+    'Run unit tests',
     [
-      'build',
       'karma:unit',
     ]
   );
