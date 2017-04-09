@@ -22,7 +22,6 @@ function registerBuildTask (grunt) {
     'default',
     [
       'build',
-      'karma:unit',
     ]
   );
 

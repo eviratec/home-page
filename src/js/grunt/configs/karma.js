@@ -51,7 +51,7 @@ function initKarmaConfig ($config, grunt) {
       autoWatch: false,
       debug: true,
       autoWatchatchInterval: 0,
-      browsers: karmaHeadless,
+      browsers: karmaChrome,
     },
     babelPreprocessor: {
       options: {
@@ -70,7 +70,7 @@ function initKarmaConfig ($config, grunt) {
     background: {
       background: true,
       singleRun: false,
-      browsers: karmaHeadless,
+      browsers: karmaChrome,
     },
     watch: {
       singleRun: false,
