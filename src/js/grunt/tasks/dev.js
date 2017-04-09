@@ -22,7 +22,7 @@ function registerDevTask (grunt) {
     'dev',
     'Run dev server and watch for changes',
     [
-      // 'build',
+      'build',
       'connect',
       'watch:dev',
     ]

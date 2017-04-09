@@ -22,7 +22,8 @@ function initWatchConfig ($config) {
     dev: {
       files: [
         '<%= staticDir %>/**/*.{png,jpg,jpeg,gif,webp,svg,html,js}',
-        '<%= srcDir %>/**/*.es6',
+        '<%= srcDir %>/ng/**/*.es6',
+        '<%= srcDir %>/ng/**/*.html',
         '<%= testSpecDir %>/**/*.js',
       ],
       tasks: [
