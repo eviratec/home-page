@@ -49,7 +49,6 @@ function initKarmaConfig ($config, grunt) {
       port: 8080,
       colors: true,
       autoWatch: false,
-      debug: true,
       autoWatchatchInterval: 0,
       browsers: karmaChrome,
     },
@@ -63,8 +62,6 @@ function initKarmaConfig ($config, grunt) {
       browsers: karmaChrome,
     },
     debug: {
-      singleRun: false,
-      background: false,
       browsers: karmaChrome,
     },
     background: {
