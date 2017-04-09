@@ -23,6 +23,10 @@ function sessionFactory (  $cookies,   uuid) {
 
   class Session {
 
+    get SESSION_COOKIE () {
+      return SESSION_COOKIE;
+    }
+
     constructor (sessionId) {
 
       setSessionId(this, sessionId);
