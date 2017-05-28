@@ -18,7 +18,8 @@
 
     <div flex></div>
 
-    <div class="md-body-1">
+    <div class="md-body-1"
+      ng-if="$pageHeader.showLoginButton">
       <div ng-if="$pageHeader.sso.isLoggedIn">
         Logged in as
         <span>{{ $pageHeader.sso.userFullName }}</span>

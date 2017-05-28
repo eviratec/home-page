@@ -1,8 +1,8 @@
-/** 
+/**
  * Copyright (c) 2017 Callan Peter Milne
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above 
+ * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
@@ -35,6 +35,8 @@ function ssoFactory (  $appEnvironment,   $http,   $session) {
 
       this.session = $session;
 
+      this.loginEnabled = $appEnvironment.config.enableLogin;
+
     }
 
     get isLoggedIn () {
@@ -54,26 +56,74 @@ function ssoFactory (  $appEnvironment,   $http,   $session) {
 
     }
 
-    init () {
-      fetchSsoId(this.remoteHost, this.session.id)
-        .then((d) => {
-          Object.assign(this.d, d);
-        });
+    callFn (fn) {
+
+      let fnNotCallable = 'function' !== typeof fn.call;
+      if (fnNotCallable) {
+        throw new Error('$sso.callFn(fn): {fn} is not callable');
+      }
+
+      return fn.call(this);
+
     }
 
-    refresh () {
-      return new Promise((resolve, reject) => {
+    withLoginDisabled (callFn) {
+
+      let loginEnabled = this.loginEnabled;
+      if (loginEnabled) {
+        return;
+      }
+
+      return this.callFn(callFn);
+
+    }
+
+    withLoginEnabled (callFn) {
+
+      let loginDisabled = !this.loginEnabled;
+      if (loginDisabled) {
+        return;
+      }
+
+      return this.callFn(callFn);
+
+    }
+
+    init () {
+      this.withLoginEnabled(() => {
         fetchSsoId(this.remoteHost, this.session.id)
           .then((d) => {
             Object.assign(this.d, d);
-            resolve();
           });
       });
     }
 
+    refresh () {
+      return new Promise((resolve, reject) => {
+
+        this.withLoginEnabled(() => {
+          fetchSsoId(this.remoteHost, this.session.id)
+            .then((d) => {
+              Object.assign(this.d, d);
+              resolve();
+            });
+        });
+
+        this.withLoginDisabled(() => {
+          reject(new Error('Login is disabled'));
+        });
+
+      });
+    }
+
     login () {
-      
+
       if (this.isLoggedIn) {
+        return false;
+      }
+
+      let loginDisabled = !this.loginEnabled;
+      if (loginDisabled) {
         return false;
       }
 
@@ -91,7 +141,7 @@ function ssoFactory (  $appEnvironment,   $http,   $session) {
       catch (err) {
         // supress error
       }
-      
+
       this.session.reset();
 
       return this.refresh();

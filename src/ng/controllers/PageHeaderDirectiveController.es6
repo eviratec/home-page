@@ -1,8 +1,8 @@
-/** 
+/**
  * Copyright (c) 2017 Callan Peter Milne
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above 
+ * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
@@ -29,6 +29,7 @@ function PageHeaderDirectiveController (  $scope,   $sso) {
       this.headline = header.headline || 'New page';
 
       this.sso = $sso;
+      this.showLoginButton = $sso.loginEnabled;
 
     }
 

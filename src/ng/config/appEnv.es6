@@ -1,8 +1,8 @@
-/** 
+/**
  * Copyright (c) 2017 Callan Peter Milne
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above 
+ * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
@@ -20,7 +20,7 @@ appEnv.$inject = ['$appEnvironmentProvider'];
 function appEnv (  $appEnvironmentProvider) {
 
   $appEnvironmentProvider
-  
+
   /**
    * Default environment vars
    */
@@ -36,10 +36,11 @@ function appEnv (  $appEnvironmentProvider) {
     copyright: 'Copyright © 2016 Callan Peter Milne.',
     // ssoHost: 'http://0.0.0.0:3000',
     ssoHost: 'https://login.eviratec.co',
+    enableLogin: false,
     analyticsEnabled: false,
     analyticsTrackingCode: 'UA-XXXXXXXX-1',
   })
-  
+
   /**
    * Local dev environment
    */
@@ -49,7 +50,7 @@ function appEnv (  $appEnvironmentProvider) {
     contactEmail: 'info@eviratec.localhost',
     msgIdPrefix: 'dev/local/callan.milne/',
   })
-  
+
   /**
    * Staging (preview.eviratec.com.au) environment
    */
@@ -59,7 +60,7 @@ function appEnv (  $appEnvironmentProvider) {
     contactEmail: 'info@eviratec.com.au',
     msgIdPrefix: 'dev/staging/www.eviratec.com.au/',
   })
-  
+
   /**
    * Production (www.eviratec.com.au) environment
    */
@@ -73,8 +74,7 @@ function appEnv (  $appEnvironmentProvider) {
     analyticsEnabled: true,
     analyticsTrackingCode: 'UA-96534995-1',
   })
-  
+
   .defaultEnvironmentName('localdev');
 
 }
-
