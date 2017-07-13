@@ -2,7 +2,7 @@
   class="state-section"
   layout="column"
   layout-fill>
-  
+
   <header ng-model="$products.header"
     page-header>
   </header>
@@ -19,7 +19,7 @@
       <div style="width:1010px;padding:24px;"
         layout="column"
         layout-align="end stretch">
-        
+
         <div>
           <div style="margin-top: 24px;padding-top: 8px;"
             layout-align="start start"
@@ -27,13 +27,13 @@
             layout="row">
             <div>
               <p class="md-display-2" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,1);">
-                We can sort you out with
+                Eviratec Software
               </p>
             </div>
             <div class="flex"></div>
           </div>
         </div>
-        
+
         <div flex="">
 
           <div layout-xs="column"
@@ -48,11 +48,11 @@
 
                 <div class="card-header"
                   style="overflow:hidden;position:relative;">
-                  
-                  <div ng-if="$products.isWpProductCategory($category)"
-                    style="position:absolute;bottom:-24px;right:-12px;">
-                    <span style="font-size:86px;opacity:0.2;"
-                      class="socicon socicon-wordpress">
+
+                  <div ng-if="$category.bgImgSrc"
+                    style="position:absolute;bottom:0px;right:0px;height:100%;width:100%;" class="ng-scope">
+                    <span class="background-image"
+                      style="background-image:url({{$category.bgImgSrc}});height: 100%;width: 100%;display: block;background-size: 128px;background-position-y:-10px;background-repeat: no-repeat;background-position-x:241px;">
                     </span>
                   </div>
 
@@ -63,7 +63,7 @@
                     ng-bind="$category.tag_line"></p>
 
                 </div>
-                
+
                 <md-card-actions layout-align="end center"
                   layout="row">
 
@@ -73,14 +73,14 @@
                   </span>
 
                   <span flex></span>
-                  
+
                   <a href="/products/{{ $category.slug }}"
                     md-button
                     aria-label="View">
                     View range
                     <md-icon class="material-icons">chevron_right</md-icon>
                   </a>
-                  
+
                 </md-card-actions>
 
               </md-card>
@@ -90,7 +90,7 @@
           </div>
 
         </div>
-        
+
         <div>
           <div style="margin-top: 24px;padding-top: 8px;"
             layout-align="start end"
@@ -98,7 +98,7 @@
             layout="row">
             <div>
               <p class="md-display-1" style="font-weight: 200;font-family: 'Signika Negative',Roboto,sans-serif;margin: 8px;color: rgba(255,255,255,0.7);">
-                Plus everything else...
+                View our app &amp; website dev services
               </p>
             </div>
             <div class="flex"></div>
@@ -118,7 +118,7 @@
       </div>
 
     </div>
-    
+
   </div>
 
   <div style="width:100%;"
@@ -168,10 +168,10 @@
         <div flex></div>
 
       </div>
-  
+
       <footer page-footer>
       </footer>
-      
+
     </md-content>
 
   </div>

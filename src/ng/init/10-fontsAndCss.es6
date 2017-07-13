@@ -1,8 +1,8 @@
-/** 
+/**
  * Copyright (c) 2017 Callan Peter Milne
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above 
+ * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
@@ -20,7 +20,7 @@ initStyleSheets.$inject = ['$assetUri'];
 function initStyleSheets (  $assetUri) {
 
   let styleSheets = [
-    $assetUri('ewa.min.css'),
+    $assetUri('ewa.min.css?ts=1499920268'),
     'https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css',
     'https://fonts.googleapis.com/css?family=Signika+Negative:300,400,600|Ubuntu',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
@@ -41,20 +41,20 @@ function initStyleSheets (  $assetUri) {
     });
 
   }
-  
+
   function newLinkEl (href, rel, type) {
-    
+
     let linkEl = document.createElement('link');
 
     rel = rel || 'stylesheet';
     type = type || 'text/css';
 
     linkEl.setAttribute('href', href);
-    
+
     if (undefined !== rel) {
       linkEl.setAttribute('rel', rel);
     }
-    
+
     if (undefined !== type) {
       linkEl.setAttribute('type', type);
     }

@@ -8,7 +8,7 @@
       <div>
         <div layout="row"
           layout-xs="column">
-    
+
           <md-input-container flex="20"
             flex-xs="100">
 
@@ -72,7 +72,7 @@
 
       <div>
         <div layout="row" layout-xs="column">
-        
+
           <md-input-container flex="50"
             flex-xs="100">
 
@@ -90,7 +90,7 @@
             </div>
 
           </md-input-container>
-        
+
           <md-input-container flex="50"
             flex-xs="100">
 
@@ -98,8 +98,8 @@
 
             <input name="contactEmail"
               type="email"
-              minlength="10" 
-              maxlength="100" 
+              minlength="10"
+              maxlength="100"
               ng-pattern="/^.+@.+\..+$/"
               ng-model="$form.data.contactEmail"
               tab-index="6"
@@ -115,7 +115,7 @@
 
         </div>
       </div>
-    
+
       <md-input-container class="md-block">
 
         <label>Message / subject / call-back preferences (optional)</label>
@@ -131,8 +131,12 @@
         </textarea>
 
         <div ng-messages="contact.message.$error">
-          <div ng-message="md-minlength">Message must be more than 5 characters</div>
-          <div ng-message="md-maxlength">Message must be less than 30 characters</div>
+          <div ng-message="md-minlength">
+            Message must be more than 5 characters
+          </div>
+          <div ng-message="md-maxlength">
+            Message must be less than 30 characters
+          </div>
         </div>
 
       </md-input-container>
@@ -140,17 +144,17 @@
       <div>
         <div layout="row"
           layout-align="end center">
-          
+
           <div ng-if="$form.isDone"
             layout-align="start center"
             layout="row"
             layout>
-            
+
             <md-icon class="material-icons"
               style="color:#8BC34A;margin-right:8px;">
               check
             </md-icon>
-            
+
             <span>Request submitted.</span>
 
           </div>

@@ -1,8 +1,8 @@
-/** 
+/**
  * Copyright (c) 2017 Callan Peter Milne
- * 
+ *
  * Permission to use, copy, modify, and/or distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above 
+ * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
@@ -44,23 +44,19 @@ function ProductsStateController (  $queryCache,   $timeout,   $resizeListener, 
       updateHeroHeight(this, $resizeListener.current.h);
 
       this.productCategories = [{
-        id: '',
-        slug: 'ssl-certificates',
-        label: 'SSL Certificates',
-        tag_line: 'Protect your web traffic',
-        caption: 'From $39',
-      }, {
-        id: '',
-        slug: 'wp-themes',
-        label: 'WP Themes',
-        tag_line: 'Themes for WordPress',
-        caption: '',
-      }, {
-        id: '',
-        slug: 'wp-plugins',
-        label: 'WP Plugins',
-        tag_line: 'Plugins for WordPress',
-        caption: '',
+        id:"",
+        slug:"data-studio",
+        label:"Data Studio",
+        tag_line:"github.com/data-studio",
+        bgImgSrc:"https://s3-ap-southeast-2.amazonaws.com/data-studio/pub/assets/data-studio.png",
+        websiteUrl:"https://webui,datastudio.eviratec.software/"
+      },{
+        id:"",
+        slug:"endeavour-app",
+        label:"Endeavour App",
+        tag_line:"github.com/endeavour-app",
+        bgImgSrc:"https://s3-ap-southeast-2.amazonaws.com/endeavour-app/pub/assets/endeavour-app.png",
+        websiteUrl:"https://github.com/endeavour-app/"
       }];
 
       this.vendors = [{

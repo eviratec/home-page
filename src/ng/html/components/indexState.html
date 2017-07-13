@@ -16,10 +16,32 @@
     <div style="width:420px;"
       layout="column">
 
-      <div style="text-align:center;margin-bottom:16px;">
+      <div class="hero-title"
+        style="text-align:center;margin-bottom:16px;">
         <p class="md-display-1"
-          style="font-family:'Signika Negative',sans-serif;font-weight:300;text-shadow:1px 3px 15px rgba(0,0,0,0.3);padding:24px;margin:0px;">
-          Awesome, software development.
+          style="font-family:'Signika Negative',sans-serif;font-weight:300;text-shadow:1px 3px 15px rgba(0,0,0,0.3);padding:24px 16px 0;margin:0px;">
+          Apps &amp; Websites
+        </p>
+        <p class="md-body-1">
+          By
+          <a md-button
+            class="md-no-style"
+            href="https://www.linkedin.com/in/calmilne"
+            target="_blank">
+            Callan Milne
+          </a>
+          <a md-button class="md-icon-button"
+            href="tel:+61481549177">
+            <md-icon class="material-icons">
+              phone
+            </md-icon>
+          </a>
+          <a md-button class="md-icon-button"
+            href="mailto:cal@calmilne.com">
+            <md-icon class="material-icons">
+              mail
+            </md-icon>
+          </a>
         </p>
       </div>
 
@@ -29,7 +51,7 @@
         <div layout="row"
           layout-wrap
           style="width:80%;">
-          
+
           <a href="{{ $itm.href }}"
             class="md-button md-raised {{ $itm.class }}"
             flex
@@ -44,9 +66,9 @@
               <span ng-bind="$itm.label"></span>
             </div>
           </a>
-          
+
           <a href="{{ $itm.href }}"
-            class="md-button md-raised {{ $itm.class }}"
+            class="md-button md-raised md-accent {{ $itm.class }}"
             flex="100"
             ng-if="$index === 2"
             ng-repeat="$itm in $index.menuItems">
@@ -69,8 +91,8 @@
         <div layout="row"
           layout-align="center center"
           style="color:rgba(255,255,255,0.7);">
-          
-          <a href="{{ $link.href }}" 
+
+          <a href="{{ $link.href }}"
             class="md-button md-icon-button"
             ng-repeat="$link in $index.socialLinks"
             style="line-height: 50px;height: 60px;width: 60px;"
