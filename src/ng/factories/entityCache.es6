@@ -14,9 +14,54 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.factory('$entityCache', entityCacheFactory);
+app.factory('EntityCache', EntityCacheFactory);
 
-entityCacheFactory.$inject = ['EntityCache', '$appEnvironment'];
-function entityCacheFactory (  EntityCache,   $appEnvironment) {
-  return new EntityCache();
+EntityCacheFactory.$inject = ['EventEmitter', 'CachedEntity', '$appEnvironment'];
+function EntityCacheFactory (  EventEmitter,   CachedEntity,   $appEnvironment) {
+
+  const ENTITY_CACHE_URI_PREFIX = $appEnvironment.config.entityCacheUriPrefix;
+
+  class EntityCache extends EventEmitter {
+
+    constructor () {
+
+      super();
+
+      this.entities = {};
+
+    }
+
+    entity (uri) {
+      this.ensureEntity(uri);
+      return this.entities[uri];
+    }
+
+    ensureEntity (uri) {
+
+      if (uri in this.entities) {
+        return;
+      }
+
+      return this.initEntity(uri);
+
+    }
+
+    initEntity (uri) {
+
+      let entity = new CachedEntity(prefixEntityUri(uri));
+
+      this.entities[uri] = entity;
+
+      return this;
+
+    }
+
+  }
+
+  return EntityCache;
+
+  function prefixEntityUri (uri) {
+    return `${ENTITY_CACHE_URI_PREFIX}${uri}`;
+  }
+
 }

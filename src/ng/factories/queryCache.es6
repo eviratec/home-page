@@ -14,9 +14,54 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.factory('$queryCache', queryCacheFactory);
+app.factory('QueryCache', QueryCacheFactory);
 
-queryCacheFactory.$inject = ['QueryCache', '$appEnvironment'];
-function queryCacheFactory (  QueryCache,   $appEnvironment) {
-  return new QueryCache();
+QueryCacheFactory.$inject = ['EventEmitter', 'CachedQuery', '$appEnvironment'];
+function QueryCacheFactory (  EventEmitter,   CachedQuery,   $appEnvironment) {
+
+  const QUERY_CACHE_URI_PREFIX = $appEnvironment.config.queryCacheUriPrefix;
+
+  class QueryCache extends EventEmitter {
+
+    constructor () {
+
+      super();
+
+      this.queries = {};
+
+    }
+
+    entity (uri) {
+      this.ensureQuery(uri);
+      return this.queries[uri];
+    }
+
+    ensureQuery (uri) {
+
+      if (uri in this.queries) {
+        return;
+      }
+
+      return this.initQuery(uri);
+
+    }
+
+    initQuery (uri) {
+
+      let entity = new CachedQuery(prefixQueryUri(uri));
+
+      this.queries[uri] = entity;
+
+      return this;
+
+    }
+
+  }
+
+  return QueryCache;
+
+  function prefixQueryUri (uri) {
+    return `${QUERY_CACHE_URI_PREFIX}${uri}`;
+  }
+
 }

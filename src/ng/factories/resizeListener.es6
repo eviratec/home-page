@@ -14,9 +14,47 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.factory('$resizeListener', resizeListenerFactory);
+app.factory('ResizeListener', ResizeListenerFactory);
 
-resizeListenerFactory.$inject = ['ResizeListener'];
-function resizeListenerFactory (  ResizeListener) {
-  return new ResizeListener();
+ResizeListenerFactory.$inject = ['EventEmitter'];
+function ResizeListenerFactory (  EventEmitter) {
+
+  class ResizeListener extends EventEmitter {
+
+    constructor () {
+
+      super();
+
+      this.current = {
+        h: 0,
+        w: 0,
+      };
+
+      this.next = {
+        h: 0,
+        w: 0,
+      };
+
+    }
+
+    notify (h, w) {
+
+      this.next.h = h;
+      this.next.w = w;
+
+      this.once('resize', () => {
+        this.current.h = h;
+        this.current.w = w;
+      });
+
+      this.emit('resize', h, w);
+
+      return this;
+
+    }
+
+  }
+
+  return ResizeListener;
+
 }
